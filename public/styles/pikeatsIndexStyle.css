@@ -1,0 +1,419 @@
+/* STYLE MAIN USE ELEMENTS FOR ENTIRE PAGE -------------------------- */
+/* ////////////////////////////////////////////////////////////////// */
+
+    .bodyControl{
+
+        margin:0px auto;
+        background:#fffde0;
+        text-align:center;
+        font-family:"poppins", sans-serif;
+        text-transform:lowercase;
+        transition:all 600ms ease;
+        -o-transition:all 600ms ease;
+        -ms-transition:all 600ms ease;
+        -moz-transition:all 600ms ease;
+        -webkit-transition:all 600ms ease;
+
+    }
+
+        .mainControl{
+
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            margin:0px auto;
+            padding:20px 0px;
+            display:inline-table;
+            position:relative;
+            transition:all 600ms ease;
+            -o-transition:all 600ms ease;
+            -ms-transition:all 600ms ease;
+            -moz-transition:all 600ms ease;
+            -webkit-transition:all 600ms ease;
+
+        }
+
+
+
+
+
+
+
+/* STYLE INPUT ELEMENTS OF PAGE ------------------------------------- */
+/* ////////////////////////////////////////////////////////////////// */
+
+
+
+
+
+/* STYLE ELEMENTS FOR NAV BAR --------------------------------------- */
+/* ////////////////////////////////////////////////////////////////// */
+
+    /* NAV BAR STYLES ----------------------------------------------- */
+    /* ////////////////////////////////////////////////////////////// */
+
+    /* INCOMING POSTS CONTAINER ------------------------------------- */
+    /* ////////////////////////////////////////////////////////////// */
+
+        .adminIncomingPostsContainer{
+
+            width:300px;
+            transition:all 600ms ease;
+            -o-transition:all 600ms ease;
+            -ms-transition:all 600ms ease;
+            -moz-transition:all 600ms ease;
+            -webkit-transition:all 600ms ease;
+
+        }
+
+
+
+
+
+
+
+
+            /* FILTER BUTTONS CONTAINER ----------------------------- */
+            /* ------------------------------------------------------ */
+
+                .adminIncomingPostsFilterContainer{
+
+                    width:300px;
+                    transition:all 600ms ease;
+                    -o-transition:all 600ms ease;
+                    -ms-transition:all 600ms ease;
+                    -moz-transition:all 600ms ease;
+                    -webkit-transition:all 600ms ease;
+
+                }
+
+                    .adminIncomingPostsFilterResizer{
+
+                        width:100%;
+                        transition:all 600ms ease;
+                        -o-transition:all 600ms ease;
+                        -ms-transition:all 600ms ease;
+                        -moz-transition:all 600ms ease;
+                        -webkit-transition:all 600ms ease;
+
+                    }
+
+                        /* FILTER BUTTON FOR ALL POSTS -------------- */
+                        /* ------------------------------------------ */
+
+                            .adminAllPostsFilterButtonContainer{
+
+                                width:max-content;
+                                display:inline-block;
+                                transition:all 600ms ease;
+                                -o-transition:all 600ms ease;
+                                -ms-transition:all 600ms ease;
+                                -moz-transition:all 600ms ease;
+                                -webkit-transition:all 600ms ease;
+
+                            }
+
+                                .adminAllPostsFilterButtonActual{
+
+                                    width:max-content;
+                                    color:#FFFFFF;
+                                    cursor:pointer;
+                                    padding:10px 15px;
+                                    display:block;
+                                    background:#2c2C2C;
+                                    border-radius:8px;
+                                    letter-spacing:1px;
+                                    transition:all 600ms ease;
+                                    -o-transition:all 600ms ease;
+                                    -ms-transition:all 600ms ease;
+                                    -moz-transition:all 600ms ease;
+                                    -webkit-transition:all 600ms ease;
+
+                                }
+
+
+
+                        /* FILTER BUTTON FOR AVERAGE POSTS ---------- */
+                        /* ------------------------------------------ */
+
+                            .admin3StarsPostsFilterButtonContainer{
+
+                                width:max-content;
+                                display:inline-block;
+                                transition:all 600ms ease;
+                                -o-transition:all 600ms ease;
+                                -ms-transition:all 600ms ease;
+                                -moz-transition:all 600ms ease;
+                                -webkit-transition:all 600ms ease;
+
+                            }
+
+                                .admin3StarsPostsFilterButtonActual{
+
+                                    width:max-content;
+                                    color:#FFFFFF;
+                                    cursor:pointer;
+                                    padding:10px 15px;
+                                    display:block;
+                                    background:#2c2C2C;
+                                    border-radius:8px;
+                                    letter-spacing:1px;
+                                    transition:all 600ms ease;
+                                    -o-transition:all 600ms ease;
+                                    -ms-transition:all 600ms ease;
+                                    -moz-transition:all 600ms ease;
+                                    -webkit-transition:all 600ms ease;
+
+                                }
+
+
+
+                        /* FILTER BUTTON FOR GREAT POSTS ------------ */
+                        /* ------------------------------------------ */
+
+                            .admin5StarsPostsFilterButtonContainer{
+
+                                width:max-content;
+                                display:inline-block;
+                                transition:all 600ms ease;
+                                -o-transition:all 600ms ease;
+                                -ms-transition:all 600ms ease;
+                                -moz-transition:all 600ms ease;
+                                -webkit-transition:all 600ms ease;
+
+                            }
+
+                                .admin5StarsPostsFilterButtonActual{
+
+                                    width:max-content;
+                                    color:#FFFFFF;
+                                    cursor:pointer;
+                                    padding:10px 15px;
+                                    display:block;
+                                    background:#2c2C2C;
+                                    border-radius:8px;
+                                    letter-spacing:1px;
+                                    transition:all 600ms ease;
+                                    -o-transition:all 600ms ease;
+                                    -ms-transition:all 600ms ease;
+                                    -moz-transition:all 600ms ease;
+                                    -webkit-transition:all 600ms ease;
+
+                                }
+
+
+
+
+
+
+        
+
+            /* INCOMING POSTS SET HERE ------------------------------ */
+            /* ------------------------------------------------------ */
+
+                .adminIncomingPostsSetterContainer{
+
+                    width:300px;
+                    margin:20px 0px 0px 0px;
+                    position:relative;
+                    transition:all 600ms ease;
+                    -o-transition:all 600ms ease;
+                    -ms-transition:all 600ms ease;
+                    -moz-transition:all 600ms ease;
+                    -webkit-transition:all 600ms ease;
+
+                }
+
+                    .adminIncomingPostsSetterFirstSetContainer{
+
+                        width:100%;
+                        transition:all 600ms ease;
+                        -o-transition:all 600ms ease;
+                        -ms-transition:all 600ms ease;
+                        -moz-transition:all 600ms ease;
+                        -webkit-transition:all 600ms ease;
+
+                    }
+
+                        /* POST CONTAINER GENERA -------------------- */
+                        /* ------------------------------------------ */
+
+                            .postGeneralContainer{
+
+                                width:100%;
+                                padding:10px 0px;
+                                position:relative;
+                                transition:all 600ms ease;
+                                -o-transition:all 600ms ease;
+                                -ms-transition:all 600ms ease;
+                                -moz-transition:all 600ms ease;
+                                -webkit-transition:all 600ms ease;
+
+                            }
+
+                                .postGeneralHostBlockContainer{
+
+                                    width:90%;
+                                    padding:10px 0px;
+                                    display:inline-block;
+                                    background:#FFFFFF;
+                                    border-radius:10px;
+                                    transition:all 600ms ease;
+                                    -o-transition:all 600ms ease;
+                                    -ms-transition:all 600ms ease;
+                                    -moz-transition:all 600ms ease;
+                                    -webkit-transition:all 600ms ease;
+
+                                }
+
+                                    
+
+                                    /* POST IMAGE CONTAINER --------- */
+                                    /* ------------------------------ */
+
+                                        .postGeneralHostBlockPostImageContainer{
+
+                                            width:90%;
+                                            height:100px;
+                                            display:inline-block;
+                                            background:#2C2C2C;
+                                            border-radius:8px;
+                                            transition:all 600ms ease;
+                                            -o-transition:all 600ms ease;
+                                            -ms-transition:all 600ms ease;
+                                            -moz-transition:all 600ms ease;
+                                            -webkit-transition:all 600ms ease;
+
+                                        }
+
+                                    
+
+                                    /* POST RATING CONTAINER -------- */
+                                    /* ------------------------------ */
+
+                                        .postGeneralHostBlockRatingsContainer{
+
+                                            width:90%;
+                                            height:50px;
+                                            display:inline-block;
+                                            margin-top:0px;
+                                            background:#e67474;
+                                            border-radius:8px;
+                                            transition:all 600ms ease;
+                                            -o-transition:all 600ms ease;
+                                            -ms-transition:all 600ms ease;
+                                            -moz-transition:all 600ms ease;
+                                            -webkit-transition:all 600ms ease;
+
+                                        }
+
+                                            .postGeneralHostBlockRatingsStarOneContainer{
+
+                                                width:20%;
+                                                height:50px;
+                                                float:left;
+                                                display:inline-block;
+                                                position:relative;
+                                                transition:all 600ms ease;
+                                                -o-transition:all 600ms ease;
+                                                -ms-transition:all 600ms ease;
+                                                -moz-transition:all 600ms ease;
+                                                -webkit-transition:all 600ms ease;
+
+                                            }
+
+                                                .postGeneralHostBlockRatingsStarOneActual{
+
+                                                    width:20px;
+                                                    height:20px;
+                                                    top:0;
+                                                    left:0;
+                                                    right:0;
+                                                    bottom:0;
+                                                    margin:auto;
+                                                    position:absolute;
+                                                    background:#2C2C2C;
+                                                    transition:all 600ms ease;
+                                                    -o-transition:all 600ms ease;
+                                                    -ms-transition:all 600ms ease;
+                                                    -moz-transition:all 600ms ease;
+                                                    -webkit-transition:all 600ms ease;
+
+                                                }
+
+                                                .postGeneralHostBlockRatingsStarTwoActual{
+
+                                                    width:20px;
+                                                    height:20px;
+                                                    top:0;
+                                                    left:0;
+                                                    right:0;
+                                                    bottom:0;
+                                                    margin:auto;
+                                                    position:absolute;
+                                                    background:#2C2C2C;
+                                                    transition:all 600ms ease;
+                                                    -o-transition:all 600ms ease;
+                                                    -ms-transition:all 600ms ease;
+                                                    -moz-transition:all 600ms ease;
+                                                    -webkit-transition:all 600ms ease;
+
+                                                }
+
+                                                .postGeneralHostBlockRatingsStarThreeActual{
+
+                                                    width:20px;
+                                                    height:20px;
+                                                    top:0;
+                                                    left:0;
+                                                    right:0;
+                                                    bottom:0;
+                                                    margin:auto;
+                                                    position:absolute;
+                                                    background:#2C2C2C;
+                                                    transition:all 600ms ease;
+                                                    -o-transition:all 600ms ease;
+                                                    -ms-transition:all 600ms ease;
+                                                    -moz-transition:all 600ms ease;
+                                                    -webkit-transition:all 600ms ease;
+
+                                                }
+
+                                                .postGeneralHostBlockRatingsStarFourActual{
+
+                                                    width:20px;
+                                                    height:20px;
+                                                    top:0;
+                                                    left:0;
+                                                    right:0;
+                                                    bottom:0;
+                                                    margin:auto;
+                                                    position:absolute;
+                                                    background:#2C2C2C;
+                                                    transition:all 600ms ease;
+                                                    -o-transition:all 600ms ease;
+                                                    -ms-transition:all 600ms ease;
+                                                    -moz-transition:all 600ms ease;
+                                                    -webkit-transition:all 600ms ease;
+
+                                                }
+
+                                                .postGeneralHostBlockRatingsStarFiveActual{
+
+                                                    width:20px;
+                                                    height:20px;
+                                                    top:0;
+                                                    left:0;
+                                                    right:0;
+                                                    bottom:0;
+                                                    margin:auto;
+                                                    position:absolute;
+                                                    background:#2C2C2C;
+                                                    transition:all 600ms ease;
+                                                    -o-transition:all 600ms ease;
+                                                    -ms-transition:all 600ms ease;
+                                                    -moz-transition:all 600ms ease;
+                                                    -webkit-transition:all 600ms ease;
+
+                                                }

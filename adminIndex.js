@@ -72,7 +72,7 @@ const bodyparser = require("body-parser");
     // CREATE MONGOOSE SCHEMA FOR UPLOAD ----------------------------------------
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-        const postSchema = {
+        const getPostSchema = {
 
             image:String,
             area:String,
@@ -85,7 +85,7 @@ const bodyparser = require("body-parser");
     // CREATE NEW USER POST -----------------------------------------------------
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-        const Post = mongoose.model("Post", postSchema)
+        const Getpost = mongoose.model("GetPost", getPostSchema)
 
 
 
@@ -123,56 +123,12 @@ const bodyparser = require("body-parser");
         // SETUP GET PATHS ------------------------------------------------------
         // //////////////////////////////////////////////////////////////////////
 
-            // REVIEW PAGE PATH xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-            // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-                app.get("/review", (req, res) => {
-
-                    res.render("review");
-
-                });
-
 
 
 
 
         // SETUP POST PATHS -----------------------------------------------------
         // //////////////////////////////////////////////////////////////////////
-
-            // REVIEW PAGE PATH xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-            // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-                app.post("/review", (req, res) => {
-
-                    // OPEN CONNECTION FOR USERS POSTS --------------------------
-                    // ----------------------------------------------------------
-
-                        mongoose.connect("mongodb+srv://klipsumlmp:sZRAj3EnrLFPfm23@pikeats.urlwdfx.mongodb.net/pikEatsUsers")
-
-                    // CREATE NEW POST ------------------------------------------
-                    // ----------------------------------------------------------
-
-                        let newPost = new Post ({
-
-                            image:req.body.userImageConverted,
-                            area:req.body.userArea,
-                            rating:req.body.userRatings,
-                            calorie:req.body.userCalories,
-                            comments:req.body.userComments
-
-                        })
-
-                    // SAVE POST TO MONGO DB ------------------------------------
-                    // ----------------------------------------------------------
-
-                        newPost.save()
-
-                    // FINALLY RERENDER PAGE WHEN DONE --------------------------
-                    // ----------------------------------------------------------
-
-                        res.redirect("review");
-
-                });
 
 
 
