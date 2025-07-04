@@ -85,7 +85,7 @@ const bodyparser = require("body-parser");
     // CREATE NEW USER POST -----------------------------------------------------
     // xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-        const Getpost = mongoose.model("GetPost", getPostSchema)
+        const posts = mongoose.model("posts", getPostSchema)
 
 
 
@@ -104,7 +104,26 @@ const bodyparser = require("body-parser");
 
             app.get("/", (req, res) => {
 
-                res.render("index");
+                // OPEN CONNECTION FOR USERS POSTS ------------------------------
+                // --------------------------------------------------------------
+
+                    mongoose.connect("mongodb+srv://klipsumlmp:sZRAj3EnrLFPfm23@pikeats.urlwdfx.mongodb.net/pikEatsUsers?retryWrites=true&w=majority")
+
+                // FIND ALL POSTS -----------------------------------------------
+                // --------------------------------------------------------------
+
+                    posts.find().then((posts) => {
+
+                        // RENDER INDEX PAGE ------------------------------------
+                        // ------------------------------------------------------
+
+                            res.render("index", {
+
+                                postList: posts
+
+                            });
+
+                    })
 
             });
 

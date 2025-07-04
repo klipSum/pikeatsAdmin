@@ -117,11 +117,11 @@
                                 .adminAllPostsFilterButtonActual{
 
                                     width:max-content;
-                                    color:#FFFFFF;
+                                    color:#2C2C2C;
                                     cursor:pointer;
                                     padding:10px 15px;
                                     display:block;
-                                    background:#2c2C2C;
+                                    background:#E9E168;
                                     border-radius:8px;
                                     letter-spacing:1px;
                                     transition:all 600ms ease;
@@ -207,16 +207,17 @@
 
 
 
-        
 
-            /* INCOMING POSTS SET HERE ------------------------------ */
+
+            /* OTHER SWITCHES BUTTONS CONTAINER --------------------- */
             /* ------------------------------------------------------ */
 
-                .adminIncomingPostsSetterContainer{
+                .adminIncomingPostsOtherSwitchesContainer{
 
                     width:300px;
-                    margin:20px 0px 0px 0px;
-                    position:relative;
+                    opacity:0;
+                    display:none;
+                    margin-top:0px;
                     transition:all 600ms ease;
                     -o-transition:all 600ms ease;
                     -ms-transition:all 600ms ease;
@@ -225,7 +226,7 @@
 
                 }
 
-                    .adminIncomingPostsSetterFirstSetContainer{
+                    .adminIncomingPostsOtherSwitchesResizer{
 
                         width:100%;
                         transition:all 600ms ease;
@@ -236,14 +237,19 @@
 
                     }
 
-                        /* POST CONTAINER GENERA -------------------- */
+                        /* SWITCH BUTTON FOR COMMENTS POSTS --------- */
                         /* ------------------------------------------ */
 
-                            .postGeneralContainer{
+                            .adminAllPostsCommentsSwitchButtonContainer{
 
-                                width:100%;
-                                padding:10px 0px;
+                                width:max-content;
+                                height:20px;
+                                cursor:pointer;
+                                display:inline-block;
+                                padding:10px 20px;
                                 position:relative;
+                                background:#E9E168;
+                                border-radius:8px;
                                 transition:all 600ms ease;
                                 -o-transition:all 600ms ease;
                                 -ms-transition:all 600ms ease;
@@ -252,33 +258,61 @@
 
                             }
 
-                                .postGeneralHostBlockContainer{
+                                /* SWITCH ON OFF COMMENTS BUTTON ICON */
+                                /* ---------------------------------- */
 
-                                    width:90%;
-                                    padding:10px 0px;
-                                    display:inline-block;
-                                    background:#FFFFFF;
-                                    border-radius:10px;
-                                    transition:all 600ms ease;
-                                    -o-transition:all 600ms ease;
-                                    -ms-transition:all 600ms ease;
-                                    -moz-transition:all 600ms ease;
-                                    -webkit-transition:all 600ms ease;
+                                    .adminAllPostsCommentsSwitchButtonIconContainer{
 
-                                }
+                                        width:20px;
+                                        height:20px;
+                                        top:0;
+                                        left:0;
+                                        right:0;
+                                        bottom:0;
+                                        margin:auto;
+                                        position:absolute;
+                                        background:#2C2C2C;
+                                        transition:all 600ms ease;
+                                        -o-transition:all 600ms ease;
+                                        -ms-transition:all 600ms ease;
+                                        -moz-transition:all 600ms ease;
+                                        -webkit-transition:all 600ms ease;
 
-                                    
+                                    }
 
-                                    /* POST IMAGE CONTAINER --------- */
-                                    /* ------------------------------ */
+                                /* SWITCH ON OFF COMMENTS CLICKERS CONTAINER */
+                                /* ---------------------------------- */
 
-                                        .postGeneralHostBlockPostImageContainer{
+                                    .adminAllPostsCommentsSwitchButtonClickersContainer{
 
-                                            width:90%;
-                                            height:100px;
-                                            display:inline-block;
-                                            background:#2C2C2C;
-                                            border-radius:8px;
+                                        width:100%;
+                                        height:100%;
+                                        top:0;
+                                        left:0;
+                                        right:0;
+                                        bottom:0;
+                                        z-index:1;
+                                        margin:auto;
+                                        position:absolute;
+                                        transition:all 600ms ease;
+                                        -o-transition:all 600ms ease;
+                                        -ms-transition:all 600ms ease;
+                                        -moz-transition:all 600ms ease;
+                                        -webkit-transition:all 600ms ease;
+
+                                    }
+
+                                        .adminAllPostsCommentsSwitchButtonClickersOn{
+
+                                            width:100%;
+                                            height:100%;
+                                            top:0;
+                                            left:0;
+                                            right:0;
+                                            bottom:0;
+                                            z-index:1;
+                                            margin:auto;
+                                            position:absolute;
                                             transition:all 600ms ease;
                                             -o-transition:all 600ms ease;
                                             -ms-transition:all 600ms ease;
@@ -287,19 +321,17 @@
 
                                         }
 
-                                    
+                                        .adminAllPostsCommentsSwitchButtonClickersOff{
 
-                                    /* POST RATING CONTAINER -------- */
-                                    /* ------------------------------ */
-
-                                        .postGeneralHostBlockRatingsContainer{
-
-                                            width:90%;
-                                            height:50px;
-                                            display:inline-block;
-                                            margin-top:0px;
-                                            background:#e67474;
-                                            border-radius:8px;
+                                            width:100%;
+                                            height:100%;
+                                            top:0;
+                                            left:0;
+                                            right:0;
+                                            bottom:0;
+                                            z-index:-1;
+                                            margin:auto;
+                                            position:absolute;
                                             transition:all 600ms ease;
                                             -o-transition:all 600ms ease;
                                             -ms-transition:all 600ms ease;
@@ -307,113 +339,3 @@
                                             -webkit-transition:all 600ms ease;
 
                                         }
-
-                                            .postGeneralHostBlockRatingsStarOneContainer{
-
-                                                width:20%;
-                                                height:50px;
-                                                float:left;
-                                                display:inline-block;
-                                                position:relative;
-                                                transition:all 600ms ease;
-                                                -o-transition:all 600ms ease;
-                                                -ms-transition:all 600ms ease;
-                                                -moz-transition:all 600ms ease;
-                                                -webkit-transition:all 600ms ease;
-
-                                            }
-
-                                                .postGeneralHostBlockRatingsStarOneActual{
-
-                                                    width:20px;
-                                                    height:20px;
-                                                    top:0;
-                                                    left:0;
-                                                    right:0;
-                                                    bottom:0;
-                                                    margin:auto;
-                                                    position:absolute;
-                                                    background:#2C2C2C;
-                                                    transition:all 600ms ease;
-                                                    -o-transition:all 600ms ease;
-                                                    -ms-transition:all 600ms ease;
-                                                    -moz-transition:all 600ms ease;
-                                                    -webkit-transition:all 600ms ease;
-
-                                                }
-
-                                                .postGeneralHostBlockRatingsStarTwoActual{
-
-                                                    width:20px;
-                                                    height:20px;
-                                                    top:0;
-                                                    left:0;
-                                                    right:0;
-                                                    bottom:0;
-                                                    margin:auto;
-                                                    position:absolute;
-                                                    background:#2C2C2C;
-                                                    transition:all 600ms ease;
-                                                    -o-transition:all 600ms ease;
-                                                    -ms-transition:all 600ms ease;
-                                                    -moz-transition:all 600ms ease;
-                                                    -webkit-transition:all 600ms ease;
-
-                                                }
-
-                                                .postGeneralHostBlockRatingsStarThreeActual{
-
-                                                    width:20px;
-                                                    height:20px;
-                                                    top:0;
-                                                    left:0;
-                                                    right:0;
-                                                    bottom:0;
-                                                    margin:auto;
-                                                    position:absolute;
-                                                    background:#2C2C2C;
-                                                    transition:all 600ms ease;
-                                                    -o-transition:all 600ms ease;
-                                                    -ms-transition:all 600ms ease;
-                                                    -moz-transition:all 600ms ease;
-                                                    -webkit-transition:all 600ms ease;
-
-                                                }
-
-                                                .postGeneralHostBlockRatingsStarFourActual{
-
-                                                    width:20px;
-                                                    height:20px;
-                                                    top:0;
-                                                    left:0;
-                                                    right:0;
-                                                    bottom:0;
-                                                    margin:auto;
-                                                    position:absolute;
-                                                    background:#2C2C2C;
-                                                    transition:all 600ms ease;
-                                                    -o-transition:all 600ms ease;
-                                                    -ms-transition:all 600ms ease;
-                                                    -moz-transition:all 600ms ease;
-                                                    -webkit-transition:all 600ms ease;
-
-                                                }
-
-                                                .postGeneralHostBlockRatingsStarFiveActual{
-
-                                                    width:20px;
-                                                    height:20px;
-                                                    top:0;
-                                                    left:0;
-                                                    right:0;
-                                                    bottom:0;
-                                                    margin:auto;
-                                                    position:absolute;
-                                                    background:#2C2C2C;
-                                                    transition:all 600ms ease;
-                                                    -o-transition:all 600ms ease;
-                                                    -ms-transition:all 600ms ease;
-                                                    -moz-transition:all 600ms ease;
-                                                    -webkit-transition:all 600ms ease;
-
-                                                }

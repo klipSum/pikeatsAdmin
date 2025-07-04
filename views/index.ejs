@@ -123,6 +123,75 @@
 
 
 
+
+
+                <!-- OTHER SWITCHES BUTTONS CONTAINER ------------- -->
+                <!-- ---------------------------------------------- -->
+
+                    <div class="adminIncomingPostsOtherSwitchesContainer">
+
+                        <div class="adminIncomingPostsOtherSwitchesResizer">
+
+
+
+
+                            <!-- SWITCH BUTTON FOR COMMENTS POSTS - -->
+                            <!-- ---------------------------------- -->
+
+                                <div class="adminAllPostsCommentsSwitchButtonContainer">
+
+                                    <!-- SWITCH ON OFF COMMENTS BUTTON ICON -->
+                                    <!-- -------------------------- -->
+
+                                        <div class="adminAllPostsCommentsSwitchButtonIconContainer">
+
+                                        </div>
+
+                                    <!-- SWITCH ON OFF COMMENTS CLICKERS CONTAINER -->
+                                    <!-- -------------------------- -->
+
+                                        <div class="adminAllPostsCommentsSwitchButtonClickersContainer">
+
+                                            <div class="adminAllPostsCommentsSwitchButtonClickersOn">
+
+                                            </div>
+
+                                            <div class="adminAllPostsCommentsSwitchButtonClickersOff">
+
+                                            </div>
+
+                                        </div>
+
+                                </div>
+
+
+
+
+                        </div>
+
+                    </div>
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 
 
                 <!-- INCOMING POSTS SET HERE ---------------------- -->
@@ -132,102 +201,49 @@
 
                         <div class="adminIncomingPostsSetterFirstSetContainer">
 
-
-
-
+                            
                             <!-- POST CONTAINER GENERAL ----------- -->
                             <!-- ---------------------------------- -->
 
-                                <div class="postGeneralContainer">
-
-                                    <div class="postGeneralHostBlockContainer">
+                                <%postList.forEach(post => {%>
 
 
+                                    <div class="postCollectorContainer">
 
-                                        <!-- POST IMAGE CONTAINER - -->
+                                        <!-- COLLECT ID ----------- -->
                                         <!-- ---------------------- -->
 
-                                            <div class="postGeneralHostBlockPostImageContainer">
+                                            <div class="postIdCollector"><%=post._id%></div>
 
-                                            </div>
-                                        
-
-
-                                        <!-- POST RATING CONTAINER  -->
+                                        <!-- COLLECT IMAGE -------- -->
                                         <!-- ---------------------- -->
 
-                                            <div class="postGeneralHostBlockRatingsContainer">
+                                            <div class="postImageCollector"><%=post.image%></div>
 
+                                        <!-- COLLECT AREA --------- -->
+                                        <!-- ---------------------- -->
 
+                                            <div class="postAreaCollector"><%=post.area%></div>
 
-                                                <!-- STAR ONE CONTAINER -->
-                                                <!-- -------------- -->
+                                        <!-- COLLECT RATING ------- -->
+                                        <!-- ---------------------- -->
 
-                                                    <div class="postGeneralHostBlockRatingsStarOneContainer">
+                                            <div class="postRatingCollector"><%=post.rating%></div>
 
-                                                        <div class="postGeneralHostBlockRatingsStarOneActual">
+                                        <!-- COLLECT CALORIE ------ -->
+                                        <!-- ---------------------- -->
 
-                                                        </div>
+                                            <div class="postCalorieCollector"><%=post.calorie%></div>
 
-                                                    </div>
+                                        <!-- COLLECT COMMENTS ----- -->
+                                        <!-- ---------------------- -->
 
-
-
-                                                <!-- STAR TWO CONTAINER -->
-                                                <!-- -------------- -->
-
-                                                    <div class="postGeneralHostBlockRatingsStarOneContainer">
-
-                                                        <div class="postGeneralHostBlockRatingsStarTwoActual">
-
-                                                        </div>
-
-                                                    </div>
-
-
-
-                                                <!-- STAR THREE CONTAINER -->
-                                                <!-- -------------- -->
-
-                                                    <div class="postGeneralHostBlockRatingsStarOneContainer">
-
-                                                        <div class="postGeneralHostBlockRatingsStarThreeActual">
-
-                                                        </div>
-
-                                                    </div>
-
-
-
-                                                <!-- STAR FOUR CONTAINER -->
-                                                <!-- -------------- -->
-
-                                                    <div class="postGeneralHostBlockRatingsStarOneContainer">
-
-                                                        <div class="postGeneralHostBlockRatingsStarFourActual">
-
-                                                        </div>
-
-                                                    </div>
-
-
-
-                                                <!-- STAR FIVE CONTAINER -->
-                                                <!-- -------------- -->
-
-                                                    <div class="postGeneralHostBlockRatingsStarOneContainer">
-
-                                                        <div class="postGeneralHostBlockRatingsStarFiveActual">
-
-                                                        </div>
-
-                                                    </div>
-
-                                            </div>
+                                            <div class="postCommentsCollector"><%=post.comments%></div>
 
                                     </div>
 
-                                </div>
+                                
+                                <%})%>
 
 
 
