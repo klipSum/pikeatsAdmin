@@ -18,6 +18,18 @@
                     var getOpenCommentsClicker = document.querySelector(`.adminAllPostsCommentsSwitchButtonClickersOn`)
                     var getCloseCommentsClicker = document.querySelector(`.adminAllPostsCommentsSwitchButtonClickersOff`)
 
+
+                // VARIABLES FOR LOAD MORE BUTTON CLICKERS ----------
+                // //////////////////////////////////////////////////
+
+                    var getLoadMoreMainButton = document.querySelector(`.adminAllPostsLoadMorePostsButtonContainer`)
+
+
+                // VARIABLES FOR POSTS COUNTER CLICKERS -------------
+                // //////////////////////////////////////////////////
+
+                    var getPostCounterMainContainer = document.querySelector(`.counterBlock`)
+
         
 
     // SRINGS DECLARED ----------------------------------------------
@@ -127,38 +139,43 @@
         // //////////////////////////////////////////////////////////
 
             var arrayForLoadMoreClassNames = []
+            
+
+        // ARRAY FOR LOAD BATCH AND LIMITERS ------------------------
+        // //////////////////////////////////////////////////////////
+
+            var arrayForNextLoadBatch = [0, 11, 21, 31, 51, 61, 71, 81, 91]
+            var arrayForNextBatchLimit = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
         
 
     // NUMBER MAKES AND COLLECTIONS DECLARED ------------------------
     // //////////////////////////////////////////////////////////////
 
+        // POST CREATE POPULATE NUMBERS GATHERER --------------------
+        // //////////////////////////////////////////////////////////
+
+            var makePopulateNextLoadBatchCounterNumber = 0
+            var makePopulateNextSetLoadBatchNumber = 0
+
         // OVERALL POST NUMBER GATHERER -----------------------------
         // //////////////////////////////////////////////////////////
 
             var collectOverAllPostsNumberCount = 0
 
-        // POST CONTROL NUMBERS -------------------------------------
+        // REMAINING POSTS AFTER FIRST LOAD -------------------------
         // //////////////////////////////////////////////////////////
 
-            var getRunPostCreateWholeNumber = 0
-            var getRunPostCreateRemainderNumber = 0
+            var numberOfPostsAfterFirstLoad = 0
 
-        // MAXIMUM POST NUMBER GATHERER -----------------------------
+            var numberOfWholePostsAfterFirstLoad = 0
+            var numberOfRemainingPostsAfterFirstLoad = 0
+
+        // LOAD MORE POST BUTTON COUNTER TICKERS --------------------
         // //////////////////////////////////////////////////////////
 
-            var collectMaximumPostsNumberCount = 200
-
-        // NUMBERS MAKES FOR POST CREATION PAGINATION LIMITS --------
-        // //////////////////////////////////////////////////////////
-
-            var makePostPaginationLimitsDefault = 0
-
-        // GET NUMBERS FOR LOAD MORE BUTTON CLASS NUMBERS -----------
-        // //////////////////////////////////////////////////////////
-
-            var collectPreviousLoadButtonClassNameNumber = 0
-            var collectNextLoadButtonClassNameNumber = 0
+            var loadMorePostsForLoopCounter = 0
+            var loadLastBatchPreviousNumberCounter = 0
 
 
 
@@ -366,15 +383,6 @@
             // ------------------------------------------------------
 
                 var numberOfPosts = collectOverAllPostsNumberCount
-                var pageDividerWholeNumberMake = Number(String(collectOverAllPostsNumberCount / 10).split(".")[0])
-                var pageDividerNumberRemainderMake = Number(String(collectOverAllPostsNumberCount / 10).split(".")[1])
-
-
-            // UPDATE GLOBAL USE VARIABLES --------------------------
-            // ------------------------------------------------------
-
-                getRunPostCreateWholeNumber = pageDividerWholeNumberMake
-                getRunPostCreateRemainderNumber = pageDividerNumberRemainderMake
 
                     
 
@@ -428,7 +436,12 @@
                                                 // CREATE POSTS -----
                                                 // ------------------
 
-                                                    postCreateFirstPageresultsSetup(numberOfPosts)
+                                                    postCreateFirstPageresultsSetup(0, numberOfPosts)
+
+                                                // REMOVE LOAD MORE BUTTON
+                                                // ------------------
+
+                                                    removeLoadMoreMainButtonBlock()
 
                                             }
 
@@ -442,46 +455,31 @@
                                                 // CREATE POSTS -----
                                                 // ------------------
 
-                                                    postCreateFirstPageresultsSetup(numberOfPosts)
+                                                    postCreateFirstPageresultsSetup(0, numberOfPosts)
+
+                                                // REMOVE LOAD MORE BUTTON
+                                                // ------------------
+
+                                                    removeLoadMoreMainButtonBlock()
 
                                             }
 
                                     }
 
-                                // 20 POSTS DETECTED ----------------
+                                // MORE THAN 10 POSTS DETECTED ------
                                 // ----------------------------------
 
-                                    else if ( (numberOfPosts > 10 && numberOfPosts < 20 ) || (numberOfPosts == 20) ) {
+                                    else {
 
-                                        // IF 20 POSTS TOTAL --------
+                                        // CREATE FIRST BATCH OF POSTS
+                                        // --------------------------
+                                    
+                                            postCreateFirstPageresultsSetup(arrayForNextLoadBatch[makePopulateNextLoadBatchCounterNumber], arrayForNextBatchLimit[makePopulateNextSetLoadBatchNumber])
+
+                                        // ADD LOAD MORE BUTTON -----
                                         // --------------------------
 
-                                            if ( numberOfPosts == 20 ) {
-
-                                                console.log(`${numberOfPosts} POSTS COLLECTED...`)
-
-                                                    // CREATE POSTS BASED ON NUMBER LIMITER
-                                                    // --------------
-
-                                                    // CREATE LOAD MORE BUTTON
-                                                    // --------------
-
-                                            }
-
-                                        // IF UNDER 20 AND OVER 10 POSTS
-                                        // --------------------------
-                                        
-                                            else {
-
-                                                console.log(`${numberOfPosts} POSTS COLLECTED...`)
-
-                                                    // CREATE POSTS BASED ON NUMBER LIMITER
-                                                    // --------------
-
-                                                    // CREATE LOAD MORE BUTTON
-                                                    // --------------
-
-                                            }
+                                            placeLoadMoreMainButtonBlock()
 
                                     }
 
@@ -491,6 +489,60 @@
                             placeCommentsMainButtonBlock()
 
                     }
+
+                    
+
+
+
+
+
+            // UPDATE REMAINING POSTS NUMBER AFTER FIRST POST -------
+            // ------------------------------------------------------
+
+                numberOfPostsAfterFirstLoad = numberOfPosts - 10
+
+                    
+
+
+
+
+
+            // UPDATE POSTS NUMBER AFTER FIRST POST -----------------
+            // ------------------------------------------------------
+
+                // CHECK IF NUMBER HAS REMAINDER TO FORM NUMBER -----
+                // --------------------------------------------------
+
+                    if (  
+                        
+                            (numberOfRemainingPostsAfterFirstLoad == undefined) || 
+                            (numberOfRemainingPostsAfterFirstLoad == null) ||
+                            (numberOfRemainingPostsAfterFirstLoad == NaN) 
+                        
+                        ) 
+                        
+                    {
+
+                    }
+
+                    else {
+
+                        numberOfRemainingPostsAfterFirstLoad = Number(String(numberOfPostsAfterFirstLoad / 10).split(".")[1])
+
+                    }
+
+                    
+
+
+
+
+
+            // UPDATE POSTS REMAINDERS ------------------------------
+            // ------------------------------------------------------
+                    
+                numberOfWholePostsAfterFirstLoad = (numberOfPostsAfterFirstLoad - numberOfRemainingPostsAfterFirstLoad)
+
+                
 
 
 
@@ -555,8 +607,6 @@
 
             }
 
-
-
         // FOR REMOVE COMMENTS BLOCK --------------------------------
         // ----------------------------------------------------------
 
@@ -613,19 +663,260 @@
 
 
     // --------------------------------------------------------------
+    // MAKE FUNCTIONS FOR LOAD MORE POSTS BUTTON MAIN PLACE OR REMOVE FUNCTIONS
+    // --------------------------------------------------------------
+
+        // FOR LOAD MORE CONDITIONS ---------------------------------
+        // ----------------------------------------------------------
+
+            function loadMorePostsFunction () {
+
+                // CREATE VARIABLES FOR BATCH CALCULATOR ------------
+                // --------------------------------------------------
+
+                    loadMorePostsForLoopCounter = loadMorePostsForLoopCounter + 1
+
+
+                // CHECK IF POSTS TO BE CREATED IS AT 0 -------------
+                // --------------------------------------------------
+
+                    // IF POSTS TO BE ADDED ARE NOT AT 0, CONTINUE --
+                    // ----------------------------------------------
+
+                        if ( (numberOfWholePostsAfterFirstLoad > 0) && (numberOfRemainingPostsAfterFirstLoad > 0) ) {
+
+                            // LESSEN POSTS REMAINING WHOLE NUMBER --
+                            // --------------------------------------
+
+                                numberOfWholePostsAfterFirstLoad = numberOfWholePostsAfterFirstLoad - 10
+
+                            // RUN LOOP TO CREATE NEXT BATCH --------
+                            // --------------------------------------
+
+                                for ( 
+                                    
+                                        nextBatchCounter = arrayForNextLoadBatch[loadMorePostsForLoopCounter] - 1; 
+                                        nextBatchCounter < arrayForNextBatchLimit[loadMorePostsForLoopCounter]; 
+                                        nextBatchCounter ++
+                                    
+                                    ) 
+                                    
+                                {
+
+                                    console.log("BEATS: " + nextBatchCounter)
+
+                                    // ADD NEXT BATCH OF POSTS ------
+                                    // ------------------------------
+
+                                        createPostBlocks(nextBatchCounter)
+
+                                    // UPDATE LAST POST NUMBER FOR NEXT LAST BATCH START
+                                    // ------------------------------
+
+                                        loadLastBatchPreviousNumberCounter = nextBatchCounter
+
+                                }
+
+                        }
+
+                    // IF REMAINDER STILL ACTIVE AND LAST BATCH -----
+                    // ----------------------------------------------
+
+                        else if ( (numberOfWholePostsAfterFirstLoad == 0) && (numberOfRemainingPostsAfterFirstLoad > 0) ) {
+
+                            // RUN LOOP TO CREATE LAST BATCH --------
+                            // --------------------------------------
+
+                                for ( 
+                                    
+                                        nextBatchCounter = loadLastBatchPreviousNumberCounter + 1; 
+                                        nextBatchCounter < loadLastBatchPreviousNumberCounter + numberOfRemainingPostsAfterFirstLoad + 1; 
+                                        nextBatchCounter ++
+                                    
+                                    ) 
+                                    
+                                {
+
+                                    console.log("GIZMOS: " + nextBatchCounter)
+
+                                    // ADD NEXT BATCH OF POSTS ------
+                                    // ------------------------------
+
+                                        createPostBlocks(nextBatchCounter)
+
+                                }
+
+                            // ZERO OUT REMAINING POSTS TO 0 --------
+                            // --------------------------------------
+
+                                numberOfRemainingPostsAfterFirstLoad = 0
+
+                            // REMOVE LOAD MORE POSTS BUTTON --------
+                            // --------------------------------------
+
+                                removeLoadMoreMainButtonBlock()
+
+                                
+
+                        }
+
+
+
+            }
+
+        // FOR PLACE LOAD COMMENTS BLOCK ----------------------------
+        // ----------------------------------------------------------
+
+            function placeLoadMoreMainButtonBlock () {
+
+                // CHECK IF HIDDEN THEN MAKE VISIBLE ----------------
+                // --------------------------------------------------
+
+                    if ( getLoadMoreMainButton.style.display = `none` ) {
+
+                        getLoadMoreMainButton.style = `
+                
+                            width:max-content;
+                            top:-5px;
+                            left:2px;
+                            color:#FFFFFF;
+                            cursor:pointer;
+                            opacity:0;
+                            padding:8px 20px;
+                            display:inline-table;
+                            position:relative;
+                            background:#2C2C2C;
+                            border-radius:8px;
+                            transition:all 600ms ease;
+                            -o-transition:all 600ms ease;
+                            -ms-transition:all 600ms ease;
+                            -moz-transition:all 600ms ease;
+                            -webkit-transition:all 600ms ease;
+
+                        `
+
+                            setTimeout(() => {
+
+                                getLoadMoreMainButton.style = `
+                                
+                                    width:max-content;
+                                    top:-14px;
+                                    left:2px;
+                                    color:#FFFFFF;
+                                    cursor:pointer;
+                                    opacity:1;
+                                    padding:8px 20px;
+                                    display:inline-table;
+                                    position:relative;
+                                    background:#2C2C2C;
+                                    border-radius:8px;
+                                    transition:all 600ms ease;
+                                    -o-transition:all 600ms ease;
+                                    -ms-transition:all 600ms ease;
+                                    -moz-transition:all 600ms ease;
+                                    -webkit-transition:all 600ms ease;
+
+                                `
+
+                            }, 50)
+
+
+                    }
+
+            }
+
+        // FOR PLACE LOAD COMMENTS BLOCK ----------------------------
+        // ----------------------------------------------------------
+
+            function removeLoadMoreMainButtonBlock () {
+
+                // CHECK IF VISIBLE THEN HIDE -----------------------
+                // --------------------------------------------------
+
+                    if ( getLoadMoreMainButton.style.display = `block` ) {
+
+                        getLoadMoreMainButton.style = `
+                        
+                            width:max-content;
+                            top:-5px;
+                            left:2px;
+                            color:#FFFFFF;
+                            cursor:pointer;
+                            opacity:0;
+                            padding:8px 20px;
+                            display:inline-table;
+                            position:relative;
+                            background:#2C2C2C;
+                            border-radius:8px;
+                            transition:all 600ms ease;
+                            -o-transition:all 600ms ease;
+                            -ms-transition:all 600ms ease;
+                            -moz-transition:all 600ms ease;
+                            -webkit-transition:all 600ms ease;
+
+                        `
+
+                            setTimeout(() => {
+
+                                getLoadMoreMainButton.style = `
+                                
+                                    width:max-content;
+                                    top:-5px;
+                                    left:2px;
+                                    color:#FFFFFF;
+                                    cursor:pointer;
+                                    opacity:0;
+                                    padding:8px 20px;
+                                    display:none;
+                                    position:relative;
+                                    background:#2C2C2C;
+                                    border-radius:8px;
+                                    transition:all 600ms ease;
+                                    -o-transition:all 600ms ease;
+                                    -ms-transition:all 600ms ease;
+                                    -moz-transition:all 600ms ease;
+                                    -webkit-transition:all 600ms ease;
+
+                                `
+
+                            }, 300)
+
+
+                    }
+
+            }
+
+
+
+
+
+
+
+
+
+    // --------------------------------------------------------------
     // CREATE POST CARDS INITIAL SETTING ----------------------------
     // --------------------------------------------------------------
 
-        function postCreateFirstPageresultsSetup (postCreateWholeNumber) {
+        function postCreateFirstPageresultsSetup (numberForPopulateCounter, numberForCardPopulate) {
 
             // RUN LOOP FOR FIRST PAGE RESULTS CREATION -------------
             // ------------------------------------------------------
 
-                for ( postCreateCounter = 0; postCreateCounter < postCreateWholeNumber; postCreateCounter++ ) {
+                for ( postCreateCounter = numberForPopulateCounter; postCreateCounter < numberForCardPopulate; postCreateCounter++ ) {
 
                     createPostBlocks(postCreateCounter)
 
                 }
+
+            // UPDATE BATCH POPULATION NUMBERS ----------------------
+            // ------------------------------------------------------
+
+                makePopulateNextLoadBatchCounterNumber = makePopulateNextLoadBatchCounterNumber ++
+                makePopulateNextSetLoadBatchNumber = makePopulateNextSetLoadBatchNumber ++
+
+                console.log("BENS:" + makePopulateNextLoadBatchCounterNumber)
+                console.log("KIMS:" + makePopulateNextSetLoadBatchNumber)
 
         }
 
@@ -1564,6 +1855,22 @@
 
 
 
+
+
+
+
+
+
+
+        
+
+            // UPDATE POST COUNTER --------------------------------------
+            // ----------------------------------------------------------
+
+                getPostCounterMainContainer.textContent = getSetPostMainContainer.children.length
+
+
+
         }
 
 
@@ -1786,204 +2093,7 @@
 
             }
 
-        // CREATE LOAD MORE BUTTONS AFTER DEFAULT BUTTON ------------
-        // ----------------------------------------------------------
 
-            function createLoadMorebutton () {
-
-                // CHECK FOR ACTIVE BUTTON AND REMOVE IT --------
-                // ----------------------------------------------
-
-                    var getLoadMorePostsButtonContainer = document.querySelector(`.adminIncomingPostsLoadMoreButton${classNumbers[collectPreviousLoadButtonClassNameNumber]}Container`)
-
-                        // IF BUTTON DOES NOT EXISTS THEN ADD NEW BUTTON
-                        // --------------------------------------
-
-                            if ( 
-                                
-                                    getLoadMorePostsButtonContainer == undefined ||
-                                    getLoadMorePostsButtonContainer == null
-                                
-                                )
-
-                                
-                            {
-
-                                // INCREASE LOAD MORE BUTTON CLASS NUMBER
-                                // ------------------------------
-
-                                    collectPreviousLoadButtonClassNameNumber = collectPreviousLoadButtonClassNameNumber + 1
-                                    collectNextLoadButtonClassNameNumber = collectNextLoadButtonClassNameNumber + 1
-
-
-                                // CREATE LOAD MORE BUTTON VARIABLES 
-                                // ------------------------------
-
-                                    var createLoadMoreButtonMainContainer = document.createElement(`div`)
-
-                                        var createLoadMoreButtonActual = document.createElement(`div`)
-
-                                    createLoadMoreButtonMainContainer.className = `adminIncomingPostsLoadMoreButton${classNumbers[collectNextLoadButtonClassNameNumber]}Container`
-
-                                        createLoadMoreButtonActual.className = `adminIncomingPostsLoadMoreButton${classNumbers[collectNextLoadButtonClassNameNumber]}Actual`
-
-
-                                // ADD TEXT LOAD MORE BUTTON VARIABLES
-                                // ------------------------------
-
-                                    createLoadMoreButtonActual.textContent = `load more`
-
-
-                                // STYLE LOAD MORE BUTTON VARIABLES
-                                // ------------------------------
-
-                                    createLoadMoreButtonMainContainer.style = `
-                                    
-                                        width:300px;
-                                        margin-top:20px;
-                                        transition:all 600ms ease;
-                                        -o-transition:all 600ms ease;
-                                        -ms-transition:all 600ms ease;
-                                        -moz-transition:all 600ms ease;
-                                        -webkit-transition:all 600ms ease;
-
-                                    `
-
-                                        createLoadMoreButtonActual.style = `
-                                        
-                                            width:90%;
-                                            height:50px;
-                                            color:rgb(255, 255, 255);
-                                            cursor:pointer;
-                                            padding:0px 5px;
-                                            display:inline-table;
-                                            position:relative;
-                                            background:rgb(44, 44, 44);
-                                            line-height:50px;
-                                            border-radius:10px;
-                                            letter-spacing:1px;
-                                            transition:all 600ms ease;
-                                            -o-transition:all 600ms ease;
-                                            -ms-transition:all 600ms ease;
-                                            -moz-transition:all 600ms ease;
-                                            -webkit-transition:all 600ms ease;
-
-                                        `
-
-
-                                // APPEND LOAD MORE BUTTON VARIABLES TO MAIN POST CONTAINER
-                                // ------------------------------
-
-                                    getSetPostMainContainer.appendChild(createLoadMoreButtonMainContainer)
-
-                                        createLoadMoreButtonMainContainer.appendChild(createLoadMoreButtonActual)
-
-                                // CREATE LOAD MORE BUTTON EVENT LISTENER
-                                // ------------------------------
-
-                                    createLoadMoreButtonActual.addEventListener("click", function() {
-
-                                        createLoadMorebutton()
-
-                                    })
-
-                            }
-
-                        // IF BUTTON EXISTS THEN REMOVE OLD AND ADD NEW BUTTON 
-                        // --------------------------------------
-
-                            else {
-
-                                // REMOVE PREVIOUS BUTTON -------
-                                // ------------------------------
-
-                                    getLoadMorePostsButtonContainer.remove(getLoadMorePostsButtonContainer)
-
-                                // INCREASE LOAD MORE BUTTON CLASS NUMBER
-                                // ------------------------------
-
-                                    collectPreviousLoadButtonClassNameNumber = collectPreviousLoadButtonClassNameNumber + 1
-                                    collectNextLoadButtonClassNameNumber = collectNextLoadButtonClassNameNumber + 1
-
-                                // CREATE LOAD MORE BUTTON NEW INCREASED CLASS NUMBER
-                                // ------------------------------
-
-                                    // CREATE LOAD MORE BUTTON VARIABLES 
-                                    // --------------------------
-
-                                        var createLoadMoreButtonMainContainer = document.createElement(`div`)
-
-                                            var createLoadMoreButtonActual = document.createElement(`div`)
-
-                                        createLoadMoreButtonMainContainer.className = `adminIncomingPostsLoadMoreButton${classNumbers[collectNextLoadButtonClassNameNumber]}Container`
-
-                                            createLoadMoreButtonActual.className = `adminIncomingPostsLoadMoreButton${classNumbers[collectNextLoadButtonClassNameNumber]}Actual`
-
-
-                                    // ADD TEXT LOAD MORE BUTTON VARIABLES
-                                    // --------------------------
-
-                                        createLoadMoreButtonActual.textContent = `load more`
-
-
-                                    // STYLE LOAD MORE BUTTON VARIABLES -
-                                    // --------------------------
-
-                                        createLoadMoreButtonMainContainer.style = `
-                                        
-                                            width:300px;
-                                            margin-top:20px;
-                                            transition:all 600ms ease;
-                                            -o-transition:all 600ms ease;
-                                            -ms-transition:all 600ms ease;
-                                            -moz-transition:all 600ms ease;
-                                            -webkit-transition:all 600ms ease;
-
-                                        `
-
-                                            createLoadMoreButtonActual.style = `
-                                            
-                                                width:90%;
-                                                height:50px;
-                                                color:rgb(255, 255, 255);
-                                                cursor:pointer;
-                                                padding:0px 5px;
-                                                display:inline-table;
-                                                position:relative;
-                                                background:rgb(44, 44, 44);
-                                                line-height:50px;
-                                                border-radius:10px;
-                                                letter-spacing:1px;
-                                                transition:all 600ms ease;
-                                                -o-transition:all 600ms ease;
-                                                -ms-transition:all 600ms ease;
-                                                -moz-transition:all 600ms ease;
-                                                -webkit-transition:all 600ms ease;
-
-                                            `
-
-
-                                    // APPEND LOAD MORE BUTTON VARIABLES TO MAIN POST CONTAINER
-                                    // --------------------------
-
-                                        getSetPostMainContainer.appendChild(createLoadMoreButtonMainContainer)
-
-                                            createLoadMoreButtonMainContainer.appendChild(createLoadMoreButtonActual)
-
-                                // CREATE LOAD MORE BUTTON EVENT LISTENER
-                                // ------------------------------
-
-                                    createLoadMoreButtonActual.addEventListener("click", function() {
-
-                                        createLoadMorebutton()
-
-                                    })
-
-
-
-                            }
-
-            }
 
 
 
@@ -2033,6 +2143,15 @@
                 closeCommentsFunction()
 
             })
+
+    // SETUP LOAD MORE POSTS BUTTON EVENTS --------------------------
+    // //////////////////////////////////////////////////////////////
+
+        getLoadMoreMainButton.addEventListener("click", function (){
+
+            loadMorePostsFunction()
+
+        })
 
 
 

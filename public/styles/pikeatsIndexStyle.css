@@ -237,6 +237,11 @@
 
                     }
 
+
+
+
+
+
                         /* SWITCH BUTTON FOR COMMENTS POSTS --------- */
                         /* ------------------------------------------ */
 
@@ -339,3 +344,60 @@
                                             -webkit-transition:all 600ms ease;
 
                                         }
+
+
+
+
+                    
+
+                        /* SWITCH BUTTON FOR LOAD MONNETS POSTS ----- */
+                        /* ------------------------------------------ */
+                            
+                            .adminAllPostsLoadMorePostsButtonContainer{
+
+                                width:max-content;
+                                top:-5px;
+                                left:2px;
+                                color:#FFFFFF;
+                                cursor:pointer;
+                                opacity:0;
+                                padding:8px 20px;
+                                display:none;
+                                position:relative;
+                                background:#2C2C2C;
+                                border-radius:8px;
+                                transition:all 600ms ease;
+                                -o-transition:all 600ms ease;
+                                -ms-transition:all 600ms ease;
+                                -moz-transition:all 600ms ease;
+                                -webkit-transition:all 600ms ease;
+
+                            }
+
+
+
+
+                    
+
+                        /* SWITCH BUTTON FOR LOAD MONNETS POSTS ----- */
+                        /* ------------------------------------------ */
+
+                            .counterBlock{
+
+                                width:max-content;
+                                top:14px;
+                                left:2px;
+                                color:#FFFFFF;
+                                opacity:1;
+                                padding:8px 10px;
+                                display:block;
+                                position:relative;
+                                background:#2C2C2C;
+                                border-radius:8px;
+                                transition:all 600ms ease;
+                                -o-transition:all 600ms ease;
+                                -ms-transition:all 600ms ease;
+                                -moz-transition:all 600ms ease;
+                                -webkit-transition:all 600ms ease;
+
+                            }
