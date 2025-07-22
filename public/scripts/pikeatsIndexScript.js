@@ -30,6 +30,49 @@
 
                     var getPostCounterMainContainer = document.querySelector(`.counterBlock`)
 
+
+                // MANAGE POSTS MAIN CONTAINER ----------------------
+                // //////////////////////////////////////////////////
+
+                    var getManagePostsMainContainer = document.querySelector(`.managePostContainer`)
+
+                    var getManaePostsContentResizer = document.querySelector(`.managePostContentBlockResizer`)
+
+                    var getManagePostsCloseButton = document.querySelector(`.managePostContentBlockBackButton`)
+
+
+                        // VARIABLES FOR MANAGE POST POPULATION -----
+                        // //////////////////////////////////////////
+
+                            var getManagePostCardUserText = document.querySelector(`.managePostContentIDPosterHeadlineContainer`)
+
+                            var getManagePostCardStarOne = document.querySelector(`.managePostContentRatingsStarActualOne`)
+                            var getManagePostCardStarTwo = document.querySelector(`.managePostContentRatingsStarActualTwo`)
+                            var getManagePostCardStarThree = document.querySelector(`.managePostContentRatingsStarActualThree`)
+                            var getManagePostCardStarFour = document.querySelector(`.managePostContentRatingsStarActualFour`)
+                            var getManagePostCardStarFive = document.querySelector(`.managePostContentRatingsStarActualFive`)
+
+                            var getmanagePostCardImage = document.querySelector(`.managePostContentImageContainer`)
+
+                            var getManagePostCardLocation = document.querySelector(`.managePostContentResturauntNameContainer`)
+
+                            var getManagePostCardPostedTime = document.querySelector(`.postUserTimeHeaderPostTag`)
+                            var getManagePostCardPostedDate = document.querySelector(`.postUserDateHeaderPostTag`)
+
+                            var getManagePostCardUserDescription = document.querySelector(`.managePostContentUserCommentContainer`)
+
+                            var getManagePostCardAdminTime = document.querySelector(`.postTimeHeaderResponseTag`)
+                            var getManagePostCardAdminDate = document.querySelector(`.postDateHeaderResponseTag`)
+
+                            var getManagePostCardAdminComment = document.querySelector(`.managePostContentAdminResponsePostedAdminCommentContainer`)
+
+
+                        // VARIABLES FOR ADMIN POST CREATION --------
+                        // //////////////////////////////////////////
+
+                            var getAdminReplyInputField = document.querySelector(`.managePostContentAdminCommentInputActual`)
+                            var getAdminReplySubmitButtonMain = document.querySelector(`.managePostContentAdminCommentSubmitButtonContainer`)
+
         
 
     // SRINGS DECLARED ----------------------------------------------
@@ -76,6 +119,11 @@
 
                 var gatherPostDBcomments = []
 
+            // ARRAY FOR ADMIN COMMENTS GATHER ----------------------
+            // //////////////////////////////////////////////////////
+
+                var gatherPostDBadminComments = []
+
         // ARRAYS FOR GATHERED CARDS MAIN CLASSNAMES ----------------
         // //////////////////////////////////////////////////////////
 
@@ -87,7 +135,8 @@
             var arrayAlignerForItemsPush = [
 
                 gatherPostDBid, gatherPostDBimage, gatherPostDBarea,
-                gatherPostDBrating, gatherPostDBcalorie, gatherPostDBcomments
+                gatherPostDBrating, gatherPostDBcalorie, gatherPostDBcomments,
+                gatherPostDBadminComments
 
             ]
             
@@ -146,6 +195,17 @@
 
             var arrayForNextLoadBatch = [0, 11, 21, 31, 51, 61, 71, 81, 91]
             var arrayForNextBatchLimit = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+            
+
+        // ARRAY FOR CLASSNAME COLLECTORS ---------------------------
+        // //////////////////////////////////////////////////////////
+
+            // FOR MANAGE POST BUTTON COLLECTION --------------------
+            // //////////////////////////////////////////////////////
+
+                var collectedManagedButtonsClassNames = []
+
+                var arrayForManageButtonCollecttion = []
 
         
 
@@ -176,6 +236,11 @@
 
             var loadMorePostsForLoopCounter = 0
             var loadLastBatchPreviousNumberCounter = 0
+
+        // MANAGE POST BUTTON SELECTOR NUMBER -----------------------
+        // //////////////////////////////////////////////////////////
+
+            var collectManagePostButtonNumber = 0
 
 
 
@@ -256,8 +321,7 @@
                                     // -------------------------------------
 
                                         var getFirstGrandchildMain = getFirstChildMainContainer
-
-                                        console.log()
+                                        
                                         var getFirstChildChilrenCount = getFirstGrandchildMain.children.length
 
                                             // RUN COLLECTION LOOP OF CHILDREN
@@ -431,8 +495,6 @@
 
                                             if ( numberOfPosts == 10 ) {
 
-                                                console.log(`${numberOfPosts} POSTS COLLECTED...`)
-
                                                 // CREATE POSTS -----
                                                 // ------------------
 
@@ -449,8 +511,6 @@
                                         // --------------------------
                                         
                                             else {
-
-                                                console.log(`${numberOfPosts} POSTS COLLECTED...`)
 
                                                 // CREATE POSTS -----
                                                 // ------------------
@@ -703,7 +763,6 @@
                                     
                                 {
 
-                                    console.log("BEATS: " + nextBatchCounter)
 
                                     // ADD NEXT BATCH OF POSTS ------
                                     // ------------------------------
@@ -736,8 +795,6 @@
                                     ) 
                                     
                                 {
-
-                                    console.log("GIZMOS: " + nextBatchCounter)
 
                                     // ADD NEXT BATCH OF POSTS ------
                                     // ------------------------------
@@ -1848,6 +1905,11 @@
 
                                                                 createGeneralPostHostManagePostButtonActualContainer.textContent = `manage post`
 
+                                                            // PUSH POSTS CLASSNAMES INTO ARRAY
+                                                            // ==============================
+
+                                                                collectedManagedButtonsClassNames.push(`postGeneralManagePostButtonActual${classNumbers[ClassNumberSelector]}`)
+
                                                             // APPEND VIEW COMMENTS BUTTON ACTUAL TO POST HOST CONTAINER MAIN
                                                             // ==============================
 
@@ -2101,6 +2163,339 @@
 
 
 
+    // --------------------------------------------------------------
+    // POST REPLY FUNCTIONS -----------------------------------------
+    // --------------------------------------------------------------
+
+        function postAdminReplyFunction () {
+
+            // SHOW HIDE SUBMIT ADMIN POST REPLY --------------------
+            // ------------------------------------------------------
+
+                // IF CHARACTERS ARE BELOW LIMIT OR 0 ---------------
+                // --------------------------------------------------
+
+                    // IF CHARACTERS EQUAL 0 THEN HIDE BUTTON -------
+                    // ----------------------------------------------
+
+                        if ( getAdminReplyInputField.value.length == 0 ) {
+
+                            if ( getAdminReplySubmitButtonMain.style.display = "none" ) {
+
+                            }
+
+                            else {
+
+                                hidePostAdminReplySubmitButton()
+
+                            }
+
+                        }
+
+                    // IF CHARACTERS UNDER LIMIT THEN HIDE BUTTON ---
+                    // ----------------------------------------------
+
+                        else if ( getAdminReplyInputField.value.length < 50 ) {
+
+                            if ( getAdminReplySubmitButtonMain.style.display = "none" ) {
+
+                            }
+
+                            else {
+
+                                hidePostAdminReplySubmitButton()
+
+                            }
+
+                        }
+
+                    // IF CHARACTERS OVER LIMIT THEN SHOW BUTTON ----
+                    // ----------------------------------------------
+
+                        else if ( getAdminReplyInputField.value.length > 50 ) {
+
+                            showPostAdminReplySubmitButton()
+
+                        }
+
+
+        }
+
+
+            // SHOW ADMIN POST BUTTON -------------------------------
+            // ------------------------------------------------------
+
+                function showPostAdminReplySubmitButton () {
+
+
+                    // CHECK IF BUTTON IS NOT VISIBLE AND BRING BACK 
+                    // ----------------------------------------------
+
+                        if ( getAdminReplySubmitButtonMain.style.display = "none" ) {
+
+                            // MAKE BUTTON LIVE ---------------------
+                            // --------------------------------------
+
+                                getAdminReplySubmitButtonMain.style = `
+                                
+                                    width:100%;
+                                    margin:0px 0px 0px 0px;
+                                    display:block;
+                                    opacity:0;
+                                    transition:all 600ms ease;
+                                    -o-transition:all 600ms ease;
+                                    -ms-transition:all 600ms ease;
+                                    -moz-transition:all 600ms ease;
+                                    -webkit-transition:all 600ms ease;
+
+                                `
+
+                                    // FADE BUTTON IN ---------------
+                                    // ------------------------------
+
+                                        setTimeout(() => {
+
+                                            getAdminReplySubmitButtonMain.style = `
+                                            
+                                                width:100%;
+                                                margin:20px 0px 0px 0px;
+                                                display:block;
+                                                opacity:1;
+                                                transition:all 600ms ease;
+                                                -o-transition:all 600ms ease;
+                                                -ms-transition:all 600ms ease;
+                                                -moz-transition:all 600ms ease;
+                                                -webkit-transition:all 600ms ease;
+
+                                            `
+
+                                        }, 5)
+
+                        }
+
+
+                }
+
+
+            // HIDE ADMIN POST BUTTON -------------------------------
+            // ------------------------------------------------------
+
+                function hidePostAdminReplySubmitButton () {
+
+
+                    // CHECK IF BUTTON ALREADY IS VISIBLE AND REMOVE 
+                    // ----------------------------------------------
+
+                        if ( getAdminReplySubmitButtonMain.style.display = "block" ) {
+
+                            // FADE OUT BUTTON ----------------------
+                            // --------------------------------------
+
+                                getAdminReplySubmitButtonMain.style = `
+                                
+                                    width:100%;
+                                    margin:0px 0px 0px 0px;
+                                    display:block;
+                                    opacity:0;
+                                    transition:all 600ms ease;
+                                    -o-transition:all 600ms ease;
+                                    -ms-transition:all 600ms ease;
+                                    -moz-transition:all 600ms ease;
+                                    -webkit-transition:all 600ms ease;
+
+                                `
+
+                                    // KILL BUTTON ------------------
+                                    // ------------------------------
+
+                                        setTimeout(() => {
+
+                                            getAdminReplySubmitButtonMain.style = `
+                                            
+                                                width:100%;
+                                                margin:0px 0px 0px 0px;
+                                                display:none;
+                                                opacity:0;
+                                                transition:all 600ms ease;
+                                                -o-transition:all 600ms ease;
+                                                -ms-transition:all 600ms ease;
+                                                -moz-transition:all 600ms ease;
+                                                -webkit-transition:all 600ms ease;
+
+                                            `
+
+                                        }, 300)
+
+                        }
+
+
+                }
+
+
+
+
+
+
+
+
+
+    // --------------------------------------------------------------
+    // EMPTY OUT MANAGE POST PANEL FUNCTIONS ------------------------
+    // --------------------------------------------------------------
+
+        function emptyOutManagePostPanelFunction () {
+
+            // RESET BEFORE POPULATION
+            // //////////////////
+
+                getManagePostCardUserText.textContent = ``
+
+                getManagePostCardStarOne.style = `
+                
+                    width:25px;
+                    height:25px;
+                    top:0;
+                    left:0;
+                    right:0;
+                    bottom:0;
+                    margin:auto;
+                    position:absolute;
+                    background:url(${star64Images[0]});
+                    background-size:cover;
+                    background-repeat:no-repeat;
+                    background-position:top;
+                    transition:all 400ms ease;
+                    -o-transition:all 400ms ease;
+                    -ms-transition:all 400ms ease;
+                    -moz-transition:all 400ms ease;
+                    -webkit-transition:all 400ms ease;
+
+                `
+                getManagePostCardStarTwo.style = `
+                
+                    width:25px;
+                    height:25px;
+                    top:0;
+                    left:0;
+                    right:0;
+                    bottom:0;
+                    margin:auto;
+                    position:absolute;
+                    background:url(${star64Images[0]});
+                    background-size:cover;
+                    background-repeat:no-repeat;
+                    background-position:top;
+                    transition:all 400ms ease;
+                    -o-transition:all 400ms ease;
+                    -ms-transition:all 400ms ease;
+                    -moz-transition:all 400ms ease;
+                    -webkit-transition:all 400ms ease;
+
+                `
+                getManagePostCardStarThree.style = `
+                
+                    width:25px;
+                    height:25px;
+                    top:0;
+                    left:0;
+                    right:0;
+                    bottom:0;
+                    margin:auto;
+                    position:absolute;
+                    background:url(${star64Images[0]});
+                    background-size:cover;
+                    background-repeat:no-repeat;
+                    background-position:top;
+                    transition:all 400ms ease;
+                    -o-transition:all 400ms ease;
+                    -ms-transition:all 400ms ease;
+                    -moz-transition:all 400ms ease;
+                    -webkit-transition:all 400ms ease;
+
+                `
+                getManagePostCardStarFour.style = `
+                
+                    width:25px;
+                    height:25px;
+                    top:0;
+                    left:0;
+                    right:0;
+                    bottom:0;
+                    margin:auto;
+                    position:absolute;
+                    background:url(${star64Images[0]});
+                    background-size:cover;
+                    background-repeat:no-repeat;
+                    background-position:top;
+                    transition:all 400ms ease;
+                    -o-transition:all 400ms ease;
+                    -ms-transition:all 400ms ease;
+                    -moz-transition:all 400ms ease;
+                    -webkit-transition:all 400ms ease;
+
+                `
+                getManagePostCardStarFive.style = `
+                
+                    width:25px;
+                    height:25px;
+                    top:0;
+                    left:0;
+                    right:0;
+                    bottom:0;
+                    margin:auto;
+                    position:absolute;
+                    background:url(${star64Images[0]});
+                    background-size:cover;
+                    background-repeat:no-repeat;
+                    background-position:top;
+                    transition:all 400ms ease;
+                    -o-transition:all 400ms ease;
+                    -ms-transition:all 400ms ease;
+                    -moz-transition:all 400ms ease;
+                    -webkit-transition:all 400ms ease;
+
+                `
+
+                getmanagePostCardImage.style = `
+                
+                    width:100%;
+                    height:230px;
+                    margin:20px 0px 0px 0px;
+                    display:inline-block;
+                    overflow:hidden;
+                    position:relative;
+                    border-radius:8px;
+                    background:#2C2C2C;
+                    transition:all 400ms ease;
+                    -o-transition:all 400ms ease;
+                    -ms-transition:all 400ms ease;
+                    -moz-transition:all 400ms ease;
+                    -webkit-transition:all 400ms ease;
+
+                `
+
+                getManagePostCardLocation.textContent = ``
+
+                getManagePostCardPostedTime.textContent = ``
+                getManagePostCardPostedDate.textContent = ``
+
+                getManagePostCardUserDescription.textContent = ``
+
+                getManagePostCardAdminTime.textContent = ``
+                getManagePostCardAdminDate.textContent = ``
+
+                getManagePostCardAdminComment.textContent = ``
+
+        }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2152,6 +2547,377 @@
             loadMorePostsFunction()
 
         })
+
+    // SETUP CLICK COLLECTION EVENTS --------------------------------
+    // //////////////////////////////////////////////////////////////
+
+        window.addEventListener("click", function (obj) {
+
+            var selectedObject = obj.srcElement.className
+
+            // CHECK IF CLASSNAME INCLUDES MANAGE AND ADD TO ARRAY --
+            // //////////////////////////////////////////////////////
+
+                if ( selectedObject.includes("postGeneralManagePostButtonActual") ) {
+
+                    // FIRST EMPTY OUT ARRAY ------------------------
+                    // //////////////////////////////////////////////
+
+                        arrayForManageButtonCollecttion = []
+
+                    // THEN PUSH NEW OBTAINED CLASSNAME INTO ARRAY --
+                    // //////////////////////////////////////////////
+
+                        arrayForManageButtonCollecttion.push(selectedObject)
+
+                    // GET ARRAY MATCH NUMBER -----------------------
+                    // //////////////////////////////////////////////
+
+                        // RUN LOOP TO GET MATCHED INDEX ------------
+                        // //////////////////////////////////////////
+
+                            for( buttonFindCounter = 0; buttonFindCounter < collectedManagedButtonsClassNames.length; buttonFindCounter++ ){
+
+                                // FOR PRESENT CLASS NUMBER ---------
+                                // //////////////////////////////////
+
+                                    if ( arrayForManageButtonCollecttion == collectedManagedButtonsClassNames[buttonFindCounter] ) {
+
+                                        // UPDATE MANAGE POST COLLECTED NUMBER
+                                        // //////////////////////////
+
+                                            collectManagePostButtonNumber = buttonFindCounter
+
+                                        // ADD EVENT LISTENER TO SELECTED BUTTON
+                                        // //////////////////////////
+
+                                            var createSelectedButton = document.querySelector(`.${collectedManagedButtonsClassNames[buttonFindCounter]}`)
+
+                                            createSelectedButton.addEventListener("click", function(){
+
+
+                                                // RESET BEFORE POPULATION
+                                                // //////////////////
+
+                                                    emptyOutManagePostPanelFunction()
+
+
+                                                // UPDATE FIELDS WITH CONTENT
+                                                // //////////////////
+
+                                                    // UPDATE USER ID
+                                                    // //////////////
+
+                                                        getManagePostCardUserText.textContent = `BY: ${arrayAlignerForItemsPush[0][buttonFindCounter]}`
+
+                                                    // RUN LOOP FOR EACH STAR BASED ON COLLECTED STAR COUNTER
+                                                    // //////////////
+
+                                                        var getStarCounter = `${arrayAlignerForItemsPush[3][buttonFindCounter]}`
+
+                                                        for ( starCounter = 0; starCounter < getStarCounter; starCounter++ ) {
+
+                                                            var getSelectedStar = document.querySelector(`.managePostContentRatingsStarActual${classNumbers[starCounter]}`)
+
+                                                                getSelectedStar.style = `
+                                                                
+                                                                    width:25px;
+                                                                    height:25px;
+                                                                    top:0;
+                                                                    left:0;
+                                                                    right:0;
+                                                                    bottom:0;
+                                                                    margin:auto;
+                                                                    position:absolute;
+                                                                    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANkSURBVHgB7ZpfThNBHMe/u1tBYlLgRW01cTdUE58oNyg3WE4AngA8gXCDegLxAjo3oJ6A8mSiJl0TkhqfGk3UIOz4m+kWZdktM3RmLEk/D7TZ/nZnvjPz+zOzADNmWMGDRb704m2eYocDA+8EG7WnLIElKrBE/30ckoi2+C5Hax6v6O86LOHDEv4cXly4wNE6/hRvwRJWltZxL24GKQ4LGhv8/IYoWmMDGMbKjJCIt0XXyVeW5qrYgQWMC+kPl09Y9nsAbPcO4yUYxqgQ2UEv5xs5xKwsVMfbXAejQm5XsY0xszGCxOyIqAaDGBOSdWxX+YZhODaGMSGXwu1VUDjuf4xbMIQRISLcpsAWdAnM+YoRIWXh9koMJsmJhYh6CgoOXkZAUc6E42tn9uMPcZM+mpUAq9xDU4wqJiehjnTPUhzREu1UTpHoFpilQkROuHVHjrTsNDXQoukLRR6AA0Q5QwPV9Ti6Jxzv/BTJwyesO8Ye5x2fr2KLLqxSZ5v02cQ04qEjxJ1yHP3+Djaq287LeEpmosgLh7ZTDC1lGugW+RaCRWwi2xrIPvd75GwperiB8AU/rNfffJZRqxZJx0pw80iECPHlb/j15RQluDkkWZ8lF9whW2IHmCAvOEKKyFaS5JJffxXlBolxFWZ1EWHZJxF3o4uhuDBAyWLOlzMzdQQ+1vIiBIUlSu0x61CYe4Zpg/pUJEJQWmvVGmyfltdzTA97ok9lP44tGusrrE3Ov4f/z15the2OM1BK4uQzuyTZ+D5bkStFCJSrETod2SfrTTiEc7ysN5jS8ZFWWUViDuiOFhxA/tmlpb2maq+1sUqpnIYrUrzWMbd29jspuglZSwglo1U4grL3Iy17HWNyPmdlC7W1rGOvt7Q8d8Wk5+nNvq6PhHCEZ8tHstMTZwhn1zm1VxZCJxrOy/r5e/6iqq2ykAp3v9niP1LzCTG9vqOLw7drvWqjl6nml5Z2xOLoUHZep4Ivur/ClrP9TaLzCE+jTWUhZKiWoEYCGmxdbtAyxF5CiNIRpJMUzc1IiYA8OoJ0kqJOHgkLryoKyDMSRIXohnxGUec8GzNyubF9ujvSFZDnQYMx8QwxGPk2RCmv+hz1jRWdefGz4TtyL0D73zMlk4zaoYPqwa8K2lFk/p8LZrjgD70JH5InxbN8AAAAAElFTkSuQmCC);
+                                                                    background-size:cover;
+                                                                    background-repeat:no-repeat;
+                                                                    background-position:top;
+                                                                    transition:all 400ms ease;
+                                                                    -o-transition:all 400ms ease;
+                                                                    -ms-transition:all 400ms ease;
+                                                                    -moz-transition:all 400ms ease;
+                                                                    -webkit-transition:all 400ms ease;
+
+                                                                `
+
+                                                        }
+
+                                                    // UPDATE USER IMAGE
+                                                    // //////////////
+
+                                                        getmanagePostCardImage.style = `
+                                                        
+                                                            width:100%;
+                                                            height:230px;
+                                                            margin:20px 0px 0px 0px;
+                                                            display:inline-block;
+                                                            overflow:hidden;
+                                                            position:relative;
+                                                            border-radius:8px;
+                                                            background:url(${arrayAlignerForItemsPush[1][buttonFindCounter]});
+                                                            background-size:cover;
+                                                            background-repeat:no-repeat;
+                                                            background-position:center;
+                                                            transition:all 400ms ease;
+                                                            -o-transition:all 400ms ease;
+                                                            -ms-transition:all 400ms ease;
+                                                            -moz-transition:all 400ms ease;
+                                                            -webkit-transition:all 400ms ease;
+
+                                                        `
+
+                                                    // UPDATE USER LOCATION
+                                                    // //////////////
+
+                                                        getManagePostCardLocation.textContent = `${arrayAlignerForItemsPush[2][buttonFindCounter]}`
+
+                                                    // UPDATE USER TIME AND DATE MAPPER
+                                                    // //////////////
+
+                                                        getManagePostCardPostedTime.textContent = `13H00`
+                                                        getManagePostCardPostedDate.textContent = `12 JUL 2025`
+
+                                                    // UPDATE USER DESCRIPTION
+                                                    // //////////////
+
+                                                        getManagePostCardUserDescription.textContent = `${arrayAlignerForItemsPush[5][buttonFindCounter]}`
+
+                                                    // UPDATE ADMIN TIME AND DATE MAPPER
+                                                    // //////////////
+
+                                                        getManagePostCardAdminTime.textContent = `13H00`
+                                                        getManagePostCardAdminDate.textContent = `12 JUL 2025`
+
+                                                    // UPDATE ADMIN COMMENT
+                                                    // //////////////
+
+                                                        getManagePostCardAdminComment.textContent = `our post has been extended here and this is something that we can do when we put our heads together for the rest of the human species to survive for the days ahead and so forth 6.`
+
+                                                        
+                                                    
+
+                                            })
+
+                                                // FORCE CLICK ------
+                                                // //////////////////
+
+                                                    createSelectedButton.click()
+
+                                                // OPEN MANAGE POSTS PANEL
+                                                // //////////////////
+
+                                                    // MAKE LIVE FIRST
+                                                    // //////////////
+
+                                                        getManagePostsMainContainer.style = `
+                                                        
+                                                            width:100%;
+                                                            height:100%;
+                                                            top:0;
+                                                            left:0;
+                                                            right:0;
+                                                            margin:0px auto;
+                                                            display:block;
+                                                            position:fixed;
+                                                            background:rgba(255,255,255,0.0);
+                                                            backdrop-filter:blur(8px);
+                                                            transition:all 400ms ease;
+                                                            -o-transition:all 400ms ease;
+                                                            -ms-transition:all 400ms ease;
+                                                            -moz-transition:all 400ms ease;
+                                                            -webkit-transition:all 600ms ease;
+
+                                                        `
+
+                                                    // FADE IN PANEL 
+                                                    // //////////////
+
+                                                        setTimeout(() => {
+
+                                                            getManagePostsMainContainer.style = `
+                                                        
+                                                                width:100%;
+                                                                height:100%;
+                                                                top:0;
+                                                                left:0;
+                                                                right:0;
+                                                                margin:0px auto;
+                                                                display:block;
+                                                                position:fixed;
+                                                                background:rgba(255,255,255,0.8);
+                                                                backdrop-filter:blur(10px);
+                                                                transition:all 400ms ease;
+                                                                -o-transition:all 400ms ease;
+                                                                -ms-transition:all 400ms ease;
+                                                                -moz-transition:all 400ms ease;
+                                                                -webkit-transition:all 400ms ease;
+
+                                                            `
+
+                                                        }, 50)
+
+                                                            // FADE IN CONTENT RESIZER 
+                                                            // //////
+
+                                                                getManaePostsContentResizer.style = `
+                                                                
+                                                                    width:300px;
+                                                                    height:90%;
+                                                                    top:0;
+                                                                    left:0;
+                                                                    right:0;
+                                                                    bottom:0;
+                                                                    margin:auto;
+                                                                    opacity:1;
+                                                                    padding:30px;
+                                                                    overflow:auto;
+                                                                    position:absolute;
+                                                                    background:#FFFFFF;
+                                                                    border-radius:10px;
+                                                                    box-shadow:0px 30px 50px -10px rgba(0,0,0,0.15);
+                                                                    transition:all 400ms ease;
+                                                                    -o-transition:all 400ms ease;
+                                                                    -ms-transition:all 400ms ease;
+                                                                    -moz-transition:all 400ms ease;
+                                                                    -webkit-transition:all 400ms ease;
+
+                                                                `
+
+                                    }
+
+                                // FOR DISCARDED CLASS NUMBER -------
+                                // ----------------------------------
+
+                                    else {
+
+                                    }
+
+                            }
+
+                }
+
+            // AND IF CLASSNAME IS NOT MANAGE BUTTON THEN EMPTY ARRAY
+            // //////////////////////////////////////////////////////
+
+                else {
+
+                    arrayForManageButtonCollecttion = []
+
+                }
+
+        })
+
+    // SETUP MANAGE POSTS EVENTS ------------------------------------
+    // //////////////////////////////////////////////////////////////
+
+        // SETUP ADMIN POST REPLY EVENTS ----------------------------
+        // //////////////////////////////////////////////////////////
+
+            // SETUP ADMIN POST REPLY SHOW HIDE BUTTON --------------
+            // //////////////////////////////////////////////////////
+
+                getAdminReplyInputField.addEventListener("keyup", function () {
+
+                    postAdminReplyFunction()
+
+                })
+
+        // SETUP CLOSE MANAGE POSTS PANEL ---------------------------
+        // //////////////////////////////////////////////////////////
+
+            getManagePostsCloseButton.addEventListener("click", function () {
+
+                // FADE OUT MANAGE POST PANEL RESIZER ---------------
+                // //////////////////////////////////////////////////
+
+                    getManaePostsContentResizer.style = `
+                    
+                        width:300px;
+                        height:90%;
+                        top:0;
+                        left:0;
+                        right:0;
+                        bottom:0;
+                        margin:auto;
+                        opacity:0;
+                        padding:30px;
+                        overflow:auto;
+                        position:absolute;
+                        background:#FFFFFF;
+                        border-radius:10px;
+                        box-shadow:0px 30px 50px -10px rgba(0,0,0,0.15);
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    `
+
+                // FADE OUT MANAGE POST PANEL MAIN ------------------
+                // //////////////////////////////////////////////////
+
+                    setTimeout(() => {
+
+                        getManagePostsMainContainer.style = `
+                        
+                            width:100%;
+                            height:100%;
+                            top:0;
+                            left:0;
+                            right:0;
+                            margin:0px auto;
+                            display:block;
+                            position:fixed;
+                            background:rgba(255,255,255,0.0);
+                            backdrop-filter:blur(8px);
+                            transition:all 400ms ease;
+                            -o-transition:all 400ms ease;
+                            -ms-transition:all 400ms ease;
+                            -moz-transition:all 400ms ease;
+                            -webkit-transition:all 600ms ease;
+
+                        `
+
+                    }, 300)
+
+                        // KILL MANAGE POST PANEL MAIN --------------
+                        // //////////////////////////////////////////
+
+                            setTimeout(() => {
+
+                                getManagePostsMainContainer.style = `
+                                
+                                    width:100%;
+                                    height:100%;
+                                    top:0;
+                                    left:0;
+                                    right:0;
+                                    margin:0px auto;
+                                    display:none;
+                                    position:fixed;
+                                    background:rgba(255,255,255,0.0);
+                                    backdrop-filter:blur(8px);
+                                    transition:all 400ms ease;
+                                    -o-transition:all 400ms ease;
+                                    -ms-transition:all 400ms ease;
+                                    -moz-transition:all 400ms ease;
+                                    -webkit-transition:all 600ms ease;
+
+                                `
+
+                                    // EMPTY OUT ITEMS --------------
+                                    // //////////////////////////////
+
+                                        emptyOutManagePostPanelFunction()
+
+
+                            },600)
+
+
+                
+            })
 
 
 

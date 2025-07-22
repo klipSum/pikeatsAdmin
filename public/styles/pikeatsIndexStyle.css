@@ -401,3 +401,868 @@
                                 -webkit-transition:all 600ms ease;
 
                             }
+
+
+
+
+
+
+    /* MANAGE POST BLOCK STYLES ------------------------------------- */
+    /* ////////////////////////////////////////////////////////////// */
+        
+        .managePostContainer{
+
+            width:100%;
+            height:100%;
+            top:0;
+            left:0;
+            right:0;
+            margin:0px auto;
+            z-index:2;
+            display:none;
+            position:fixed;
+            background:rgba(255,255,255,0.0);
+            backdrop-filter:blur(8px);
+            transition:all 400ms ease;
+            -o-transition:all 400ms ease;
+            -ms-transition:all 400ms ease;
+            -moz-transition:all 400ms ease;
+            -webkit-transition:all 400ms ease;
+
+        }
+
+            .managePostContentBlockResizer{
+
+                width:300px;
+                height:90%;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+                margin:auto;
+                opacity:1;
+                padding:30px;
+                overflow:auto;
+                position:absolute;
+                background:#FFFFFF;
+                border-radius:10px;
+                box-shadow:0px 30px 50px -10px rgba(0,0,0,0.15);
+                transition:all 400ms ease;
+                -o-transition:all 400ms ease;
+                -ms-transition:all 400ms ease;
+                -moz-transition:all 400ms ease;
+                -webkit-transition:all 400ms ease;
+
+            }
+
+                /* BACK BUTTON CONTAINER ---------------------------- */
+                /* ////////////////////////////////////////////////// */
+
+                    .managePostContentBlockBackButtonContainer{
+
+                        width:100%;
+                        position:relative;
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    }
+                    
+                        .managePostContentBlockBackButton{
+
+                            width:40px;
+                            height:40px;
+                            top:0;
+                            left:0;
+                            cursor:pointer;
+                            border:2px solid #2C2C2C;
+                            position:relative;
+                            border-radius:1000px;
+                            transition:all 400ms ease;
+                            -o-transition:all 400ms ease;
+                            -ms-transition:all 400ms ease;
+                            -moz-transition:all 400ms ease;
+                            -webkit-transition:all 400ms ease;
+
+                        }
+
+                            .managePostContentBlockBackButtonIconContainer{
+
+                                width:20px;
+                                height:20px;
+                                top:0;
+                                left:0;
+                                right:0;
+                                bottom:0;
+                                margin:auto;
+                                position:absolute;
+                                transition:all 400ms ease;
+                                -o-transition:all 400ms ease;
+                                -ms-transition:all 400ms ease;
+                                -moz-transition:all 400ms ease;
+                                -webkit-transition:all 400ms ease;
+
+                            }
+
+                                .managePostContentBlockBackButtonIconLineOne{
+
+                                    width:7px;
+                                    height:2px;
+                                    top:-4px;
+                                    left:-10px;
+                                    right:0;
+                                    bottom:0;
+                                    margin:auto;
+                                    background:#2C2C2C;
+                                    position:absolute;
+                                    transform:rotateZ(-45deg);
+                                    border-radius:1000px;
+                                    transition:all 400ms ease;
+                                    -o-transition:all 400ms ease;
+                                    -ms-transition:all 400ms ease;
+                                    -moz-transition:all 400ms ease;
+                                    -webkit-transition:all 400ms ease;
+
+                                }
+
+                                .managePostContentBlockBackButtonIconLineTwo{
+
+                                    width:15px;
+                                    height:2px;
+                                    top:0;
+                                    left:0;
+                                    right:0;
+                                    bottom:0;
+                                    margin:auto;
+                                    background:#2c2C2C;
+                                    position:absolute;
+                                    transform:rotateZ(0deg);
+                                    border-radius:1000px;
+                                    transition:all 400ms ease;
+                                    -o-transition:all 400ms ease;
+                                    -ms-transition:all 400ms ease;
+                                    -moz-transition:all 400ms ease;
+                                    -webkit-transition:all 400ms ease;
+
+                                }
+
+                                .managePostContentBlockBackButtonIconLineThree{
+
+                                    width:7px;
+                                    height:2px;
+                                    top:4px;
+                                    left:-10px;
+                                    right:0;
+                                    bottom:0;
+                                    margin:auto;
+                                    background:#2C2C2C;
+                                    position:absolute;
+                                    transform:rotateZ(45deg);
+                                    border-radius:1000px;
+                                    transition:all 400ms ease;
+                                    -o-transition:all 400ms ease;
+                                    -ms-transition:all 400ms ease;
+                                    -moz-transition:all 400ms ease;
+                                    -webkit-transition:all 400ms ease;
+
+                                }
+
+
+
+
+
+
+    /* MANAGE POST CONTENT CONTAINER STYLES ------------------------- */
+    /* ////////////////////////////////////////////////////////////// */
+
+        .managePostContentContainer{
+
+            width:100%;
+            margin:20px 0px 0px 0px;
+            display:block;
+            position:relative;
+            transition:all 400ms ease;
+            -o-transition:all 400ms ease;
+            -ms-transition:all 400ms ease;
+            -moz-transition:all 400ms ease;
+            -webkit-transition:all 400ms ease;
+
+        }
+
+            /* MANAGE POST ID POSTER AND HEADLINE STYLE ///////////// */
+            /* ////////////////////////////////////////////////////// */
+
+                .managePostContentIDPosterHeadlineContainer{
+
+                    width:100%;
+                    color:#2C2C2C;
+                    padding:0px 0px 0px 0px;
+                    font-size:25px;
+                    text-align:left;
+                    font-weight:600;
+                    line-height:25px;
+                    text-transform:uppercase;
+                    letter-spacing:1px;
+                    transition:all 400ms ease;
+                    -o-transition:all 400ms ease;
+                    -ms-transition:all 400ms ease;
+                    -moz-transition:all 400ms ease;
+                    -webkit-transition:all 400ms ease;
+
+                }
+
+            /* MANAGE POST RATINGS HOLDER /////////////////////////// */
+            /* ////////////////////////////////////////////////////// */
+
+                .managePostContentRatingsContainer{
+
+                    width:100%;
+                    margin-top:10px;
+                    transition:all 400ms ease;
+                    -o-transition:all 400ms ease;
+                    -ms-transition:all 400ms ease;
+                    -moz-transition:all 400ms ease;
+                    -webkit-transition:all 400ms ease;
+
+                }
+
+                    .managePostContentRatingsStarBlockOne{
+
+                        width:20%;
+                        height:60px;
+                        float:left;
+                        display:inline-block;
+                        position:relative;
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    }
+
+                        .managePostContentRatingsStarActualOne{
+
+                            width:25px;
+                            height:25px;
+                            top:0;
+                            left:0;
+                            right:0;
+                            bottom:0;
+                            margin:auto;
+                            position:absolute;
+                            background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANkSURBVHgB7ZpfThNBHMe/u1tBYlLgRW01cTdUE58oNyg3WE4AngA8gXCDegLxAjo3oJ6A8mSiJl0TkhqfGk3UIOz4m+kWZdktM3RmLEk/D7TZ/nZnvjPz+zOzADNmWMGDRb704m2eYocDA+8EG7WnLIElKrBE/30ckoi2+C5Hax6v6O86LOHDEv4cXly4wNE6/hRvwRJWltZxL24GKQ4LGhv8/IYoWmMDGMbKjJCIt0XXyVeW5qrYgQWMC+kPl09Y9nsAbPcO4yUYxqgQ2UEv5xs5xKwsVMfbXAejQm5XsY0xszGCxOyIqAaDGBOSdWxX+YZhODaGMSGXwu1VUDjuf4xbMIQRISLcpsAWdAnM+YoRIWXh9koMJsmJhYh6CgoOXkZAUc6E42tn9uMPcZM+mpUAq9xDU4wqJiehjnTPUhzREu1UTpHoFpilQkROuHVHjrTsNDXQoukLRR6AA0Q5QwPV9Ti6Jxzv/BTJwyesO8Ye5x2fr2KLLqxSZ5v02cQ04qEjxJ1yHP3+Djaq287LeEpmosgLh7ZTDC1lGugW+RaCRWwi2xrIPvd75GwperiB8AU/rNfffJZRqxZJx0pw80iECPHlb/j15RQluDkkWZ8lF9whW2IHmCAvOEKKyFaS5JJffxXlBolxFWZ1EWHZJxF3o4uhuDBAyWLOlzMzdQQ+1vIiBIUlSu0x61CYe4Zpg/pUJEJQWmvVGmyfltdzTA97ok9lP44tGusrrE3Ov4f/z15the2OM1BK4uQzuyTZ+D5bkStFCJSrETod2SfrTTiEc7ysN5jS8ZFWWUViDuiOFhxA/tmlpb2maq+1sUqpnIYrUrzWMbd29jspuglZSwglo1U4grL3Iy17HWNyPmdlC7W1rGOvt7Q8d8Wk5+nNvq6PhHCEZ8tHstMTZwhn1zm1VxZCJxrOy/r5e/6iqq2ykAp3v9niP1LzCTG9vqOLw7drvWqjl6nml5Z2xOLoUHZep4Ivur/ClrP9TaLzCE+jTWUhZKiWoEYCGmxdbtAyxF5CiNIRpJMUzc1IiYA8OoJ0kqJOHgkLryoKyDMSRIXohnxGUec8GzNyubF9ujvSFZDnQYMx8QwxGPk2RCmv+hz1jRWdefGz4TtyL0D73zMlk4zaoYPqwa8K2lFk/p8LZrjgD70JH5InxbN8AAAAAElFTkSuQmCC");
+                            background-size:cover;
+                            background-repeat:no-repeat;
+                            background-position:top;
+                            transition:all 400ms ease;
+                            -o-transition:all 400ms ease;
+                            -ms-transition:all 400ms ease;
+                            -moz-transition:all 400ms ease;
+                            -webkit-transition:all 400ms ease;
+
+                        }
+
+                    .managePostContentRatingsStarBlockTwo{
+
+                        width:20%;
+                        height:60px;
+                        float:left;
+                        display:inline-block;
+                        position:relative;
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    }
+
+                        .managePostContentRatingsStarActualTwo{
+
+                            width:25px;
+                            height:25px;
+                            top:0;
+                            left:0;
+                            right:0;
+                            bottom:0;
+                            margin:auto;
+                            position:absolute;
+                            background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANkSURBVHgB7ZpfThNBHMe/u1tBYlLgRW01cTdUE58oNyg3WE4AngA8gXCDegLxAjo3oJ6A8mSiJl0TkhqfGk3UIOz4m+kWZdktM3RmLEk/D7TZ/nZnvjPz+zOzADNmWMGDRb704m2eYocDA+8EG7WnLIElKrBE/30ckoi2+C5Hax6v6O86LOHDEv4cXly4wNE6/hRvwRJWltZxL24GKQ4LGhv8/IYoWmMDGMbKjJCIt0XXyVeW5qrYgQWMC+kPl09Y9nsAbPcO4yUYxqgQ2UEv5xs5xKwsVMfbXAejQm5XsY0xszGCxOyIqAaDGBOSdWxX+YZhODaGMSGXwu1VUDjuf4xbMIQRISLcpsAWdAnM+YoRIWXh9koMJsmJhYh6CgoOXkZAUc6E42tn9uMPcZM+mpUAq9xDU4wqJiehjnTPUhzREu1UTpHoFpilQkROuHVHjrTsNDXQoukLRR6AA0Q5QwPV9Ti6Jxzv/BTJwyesO8Ye5x2fr2KLLqxSZ5v02cQ04qEjxJ1yHP3+Djaq287LeEpmosgLh7ZTDC1lGugW+RaCRWwi2xrIPvd75GwperiB8AU/rNfffJZRqxZJx0pw80iECPHlb/j15RQluDkkWZ8lF9whW2IHmCAvOEKKyFaS5JJffxXlBolxFWZ1EWHZJxF3o4uhuDBAyWLOlzMzdQQ+1vIiBIUlSu0x61CYe4Zpg/pUJEJQWmvVGmyfltdzTA97ok9lP44tGusrrE3Ov4f/z15the2OM1BK4uQzuyTZ+D5bkStFCJSrETod2SfrTTiEc7ysN5jS8ZFWWUViDuiOFhxA/tmlpb2maq+1sUqpnIYrUrzWMbd29jspuglZSwglo1U4grL3Iy17HWNyPmdlC7W1rGOvt7Q8d8Wk5+nNvq6PhHCEZ8tHstMTZwhn1zm1VxZCJxrOy/r5e/6iqq2ykAp3v9niP1LzCTG9vqOLw7drvWqjl6nml5Z2xOLoUHZep4Ivur/ClrP9TaLzCE+jTWUhZKiWoEYCGmxdbtAyxF5CiNIRpJMUzc1IiYA8OoJ0kqJOHgkLryoKyDMSRIXohnxGUec8GzNyubF9ujvSFZDnQYMx8QwxGPk2RCmv+hz1jRWdefGz4TtyL0D73zMlk4zaoYPqwa8K2lFk/p8LZrjgD70JH5InxbN8AAAAAElFTkSuQmCC");
+                            background-size:cover;
+                            background-repeat:no-repeat;
+                            transition:all 400ms ease;
+                            -o-transition:all 400ms ease;
+                            -ms-transition:all 400ms ease;
+                            -moz-transition:all 400ms ease;
+                            -webkit-transition:all 400ms ease;
+
+                        }
+
+                    .managePostContentRatingsStarBlockThree{
+
+                        width:20%;
+                        height:60px;
+                        float:left;
+                        display:inline-block;
+                        position:relative;
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    }
+
+                        .managePostContentRatingsStarActualThree{
+
+                            width:25px;
+                            height:25px;
+                            top:0;
+                            left:0;
+                            right:0;
+                            bottom:0;
+                            margin:auto;
+                            position:absolute;
+                            background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANkSURBVHgB7ZpfThNBHMe/u1tBYlLgRW01cTdUE58oNyg3WE4AngA8gXCDegLxAjo3oJ6A8mSiJl0TkhqfGk3UIOz4m+kWZdktM3RmLEk/D7TZ/nZnvjPz+zOzADNmWMGDRb704m2eYocDA+8EG7WnLIElKrBE/30ckoi2+C5Hax6v6O86LOHDEv4cXly4wNE6/hRvwRJWltZxL24GKQ4LGhv8/IYoWmMDGMbKjJCIt0XXyVeW5qrYgQWMC+kPl09Y9nsAbPcO4yUYxqgQ2UEv5xs5xKwsVMfbXAejQm5XsY0xszGCxOyIqAaDGBOSdWxX+YZhODaGMSGXwu1VUDjuf4xbMIQRISLcpsAWdAnM+YoRIWXh9koMJsmJhYh6CgoOXkZAUc6E42tn9uMPcZM+mpUAq9xDU4wqJiehjnTPUhzREu1UTpHoFpilQkROuHVHjrTsNDXQoukLRR6AA0Q5QwPV9Ti6Jxzv/BTJwyesO8Ye5x2fr2KLLqxSZ5v02cQ04qEjxJ1yHP3+Djaq287LeEpmosgLh7ZTDC1lGugW+RaCRWwi2xrIPvd75GwperiB8AU/rNfffJZRqxZJx0pw80iECPHlb/j15RQluDkkWZ8lF9whW2IHmCAvOEKKyFaS5JJffxXlBolxFWZ1EWHZJxF3o4uhuDBAyWLOlzMzdQQ+1vIiBIUlSu0x61CYe4Zpg/pUJEJQWmvVGmyfltdzTA97ok9lP44tGusrrE3Ov4f/z15the2OM1BK4uQzuyTZ+D5bkStFCJSrETod2SfrTTiEc7ysN5jS8ZFWWUViDuiOFhxA/tmlpb2maq+1sUqpnIYrUrzWMbd29jspuglZSwglo1U4grL3Iy17HWNyPmdlC7W1rGOvt7Q8d8Wk5+nNvq6PhHCEZ8tHstMTZwhn1zm1VxZCJxrOy/r5e/6iqq2ykAp3v9niP1LzCTG9vqOLw7drvWqjl6nml5Z2xOLoUHZep4Ivur/ClrP9TaLzCE+jTWUhZKiWoEYCGmxdbtAyxF5CiNIRpJMUzc1IiYA8OoJ0kqJOHgkLryoKyDMSRIXohnxGUec8GzNyubF9ujvSFZDnQYMx8QwxGPk2RCmv+hz1jRWdefGz4TtyL0D73zMlk4zaoYPqwa8K2lFk/p8LZrjgD70JH5InxbN8AAAAAElFTkSuQmCC");
+                            background-size:cover;
+                            background-repeat:no-repeat;
+                            transition:all 400ms ease;
+                            -o-transition:all 400ms ease;
+                            -ms-transition:all 400ms ease;
+                            -moz-transition:all 400ms ease;
+                            -webkit-transition:all 400ms ease;
+
+                        }
+
+                    .managePostContentRatingsStarBlockFour{
+
+                        width:20%;
+                        height:60px;
+                        float:left;
+                        display:inline-block;
+                        position:relative;
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    }
+
+                        .managePostContentRatingsStarActualFour{
+
+                            width:25px;
+                            height:25px;
+                            top:0;
+                            left:0;
+                            right:0;
+                            bottom:0;
+                            margin:auto;
+                            position:absolute;
+                            background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANkSURBVHgB7ZpfThNBHMe/u1tBYlLgRW01cTdUE58oNyg3WE4AngA8gXCDegLxAjo3oJ6A8mSiJl0TkhqfGk3UIOz4m+kWZdktM3RmLEk/D7TZ/nZnvjPz+zOzADNmWMGDRb704m2eYocDA+8EG7WnLIElKrBE/30ckoi2+C5Hax6v6O86LOHDEv4cXly4wNE6/hRvwRJWltZxL24GKQ4LGhv8/IYoWmMDGMbKjJCIt0XXyVeW5qrYgQWMC+kPl09Y9nsAbPcO4yUYxqgQ2UEv5xs5xKwsVMfbXAejQm5XsY0xszGCxOyIqAaDGBOSdWxX+YZhODaGMSGXwu1VUDjuf4xbMIQRISLcpsAWdAnM+YoRIWXh9koMJsmJhYh6CgoOXkZAUc6E42tn9uMPcZM+mpUAq9xDU4wqJiehjnTPUhzREu1UTpHoFpilQkROuHVHjrTsNDXQoukLRR6AA0Q5QwPV9Ti6Jxzv/BTJwyesO8Ye5x2fr2KLLqxSZ5v02cQ04qEjxJ1yHP3+Djaq287LeEpmosgLh7ZTDC1lGugW+RaCRWwi2xrIPvd75GwperiB8AU/rNfffJZRqxZJx0pw80iECPHlb/j15RQluDkkWZ8lF9whW2IHmCAvOEKKyFaS5JJffxXlBolxFWZ1EWHZJxF3o4uhuDBAyWLOlzMzdQQ+1vIiBIUlSu0x61CYe4Zpg/pUJEJQWmvVGmyfltdzTA97ok9lP44tGusrrE3Ov4f/z15the2OM1BK4uQzuyTZ+D5bkStFCJSrETod2SfrTTiEc7ysN5jS8ZFWWUViDuiOFhxA/tmlpb2maq+1sUqpnIYrUrzWMbd29jspuglZSwglo1U4grL3Iy17HWNyPmdlC7W1rGOvt7Q8d8Wk5+nNvq6PhHCEZ8tHstMTZwhn1zm1VxZCJxrOy/r5e/6iqq2ykAp3v9niP1LzCTG9vqOLw7drvWqjl6nml5Z2xOLoUHZep4Ivur/ClrP9TaLzCE+jTWUhZKiWoEYCGmxdbtAyxF5CiNIRpJMUzc1IiYA8OoJ0kqJOHgkLryoKyDMSRIXohnxGUec8GzNyubF9ujvSFZDnQYMx8QwxGPk2RCmv+hz1jRWdefGz4TtyL0D73zMlk4zaoYPqwa8K2lFk/p8LZrjgD70JH5InxbN8AAAAAElFTkSuQmCC");
+                            background-size:cover;
+                            background-repeat:no-repeat;
+                            transition:all 400ms ease;
+                            -o-transition:all 400ms ease;
+                            -ms-transition:all 400ms ease;
+                            -moz-transition:all 400ms ease;
+                            -webkit-transition:all 400ms ease;
+
+                        }
+
+                    .managePostContentRatingsStarBlockFive{
+
+                        width:20%;
+                        height:60px;
+                        float:left;
+                        display:inline-block;
+                        position:relative;
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    }
+
+                        .managePostContentRatingsStarActualFive{
+
+                            width:25px;
+                            height:25px;
+                            top:0;
+                            left:0;
+                            right:0;
+                            bottom:0;
+                            margin:auto;
+                            position:absolute;
+                            background:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAANkSURBVHgB7ZpfThNBHMe/u1tBYlLgRW01cTdUE58oNyg3WE4AngA8gXCDegLxAjo3oJ6A8mSiJl0TkhqfGk3UIOz4m+kWZdktM3RmLEk/D7TZ/nZnvjPz+zOzADNmWMGDRb704m2eYocDA+8EG7WnLIElKrBE/30ckoi2+C5Hax6v6O86LOHDEv4cXly4wNE6/hRvwRJWltZxL24GKQ4LGhv8/IYoWmMDGMbKjJCIt0XXyVeW5qrYgQWMC+kPl09Y9nsAbPcO4yUYxqgQ2UEv5xs5xKwsVMfbXAejQm5XsY0xszGCxOyIqAaDGBOSdWxX+YZhODaGMSGXwu1VUDjuf4xbMIQRISLcpsAWdAnM+YoRIWXh9koMJsmJhYh6CgoOXkZAUc6E42tn9uMPcZM+mpUAq9xDU4wqJiehjnTPUhzREu1UTpHoFpilQkROuHVHjrTsNDXQoukLRR6AA0Q5QwPV9Ti6Jxzv/BTJwyesO8Ye5x2fr2KLLqxSZ5v02cQ04qEjxJ1yHP3+Djaq287LeEpmosgLh7ZTDC1lGugW+RaCRWwi2xrIPvd75GwperiB8AU/rNfffJZRqxZJx0pw80iECPHlb/j15RQluDkkWZ8lF9whW2IHmCAvOEKKyFaS5JJffxXlBolxFWZ1EWHZJxF3o4uhuDBAyWLOlzMzdQQ+1vIiBIUlSu0x61CYe4Zpg/pUJEJQWmvVGmyfltdzTA97ok9lP44tGusrrE3Ov4f/z15the2OM1BK4uQzuyTZ+D5bkStFCJSrETod2SfrTTiEc7ysN5jS8ZFWWUViDuiOFhxA/tmlpb2maq+1sUqpnIYrUrzWMbd29jspuglZSwglo1U4grL3Iy17HWNyPmdlC7W1rGOvt7Q8d8Wk5+nNvq6PhHCEZ8tHstMTZwhn1zm1VxZCJxrOy/r5e/6iqq2ykAp3v9niP1LzCTG9vqOLw7drvWqjl6nml5Z2xOLoUHZep4Ivur/ClrP9TaLzCE+jTWUhZKiWoEYCGmxdbtAyxF5CiNIRpJMUzc1IiYA8OoJ0kqJOHgkLryoKyDMSRIXohnxGUec8GzNyubF9ujvSFZDnQYMx8QwxGPk2RCmv+hz1jRWdefGz4TtyL0D73zMlk4zaoYPqwa8K2lFk/p8LZrjgD70JH5InxbN8AAAAAElFTkSuQmCC");
+                            background-size:cover;
+                            background-repeat:no-repeat;
+                            transition:all 400ms ease;
+                            -o-transition:all 400ms ease;
+                            -ms-transition:all 400ms ease;
+                            -moz-transition:all 400ms ease;
+                            -webkit-transition:all 400ms ease;
+
+                        }
+
+            /* MANAGE POST IMAGE TAKEN HOLDER /////////////////////// */
+            /* ////////////////////////////////////////////////////// */
+                
+                .managePostContentImageContainer{
+
+                    width:100%;
+                    height:230px;
+                    margin:20px 0px 0px 0px;
+                    display:inline-block;
+                    overflow:hidden;
+                    position:relative;
+                    border-radius:8px;
+                    background:#2C2C2C;
+                    transition:all 400ms ease;
+                    -o-transition:all 400ms ease;
+                    -ms-transition:all 400ms ease;
+                    -moz-transition:all 400ms ease;
+                    -webkit-transition:all 400ms ease;
+
+                }
+
+            /* MANAGE POST RESTURUANT HOLDER //////////////////////// */
+            /* ////////////////////////////////////////////////////// */
+
+                .managePostContentResturauntNameContainer{
+
+                    width:100%;
+                    color:#2C2C2C;
+                    margin:0px 0px -6px 0px;
+                    padding:10px 0px 0px 0px;
+                    font-size:15px;
+                    text-align:left;
+                    font-weight:600;
+                    line-height:25px;
+                    text-transform:uppercase;
+                    letter-spacing:2px;
+                    transition:all 400ms ease;
+                    -o-transition:all 400ms ease;
+                    -ms-transition:all 400ms ease;
+                    -moz-transition:all 400ms ease;
+                    -webkit-transition:all 400ms ease;
+
+                }
+
+            /* MANAGE POST TIME STAMP HOLDER //////////////////////// */
+            /* ////////////////////////////////////////////////////// */
+
+                .managePostContentTimeStampContainer{
+
+                    width:100%;
+                    color:#A3A3A3;
+                    display:inline-block;
+                    padding:0px 0px 0px 0px;
+                    font-size:10px;
+                    text-align:left;
+                    font-weight:600;
+                    line-height:25px;
+                    text-transform:uppercase;
+                    letter-spacing:2px;
+                    transition:all 400ms ease;
+                    -o-transition:all 400ms ease;
+                    -ms-transition:all 400ms ease;
+                    -moz-transition:all 400ms ease;
+                    -webkit-transition:all 400ms ease;
+
+                }
+
+                    .postUserPostIndicatorTag{
+
+                        width:max-content;
+                        display:inline-block;
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    }
+
+                    .postUserTimeHeaderPostTag{
+
+                        width:max-content;
+                        display:inline-block;
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    }
+
+                    .postUserTimeDateSpacerPostTag{
+
+                        width:max-content;
+                        display:inline-block;
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    }
+
+                    .postUserDateHeaderPostTag{
+
+                        width:max-content;
+                        display:inline-block;
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    }
+
+            /* MANAGE POST USER COMMENT HOLDER ////////////////////// */
+            /* ////////////////////////////////////////////////////// */
+
+                .managePostContentUserCommentContainer{
+
+                    margin:10px 0px 0px 0px;
+                    font-size:15px;
+                    text-align:left;
+                    letter-spacing:0.5px;
+                    transition:all 600ms ease;
+                    -o-transition:all 600ms ease;
+                    -ms-transition:all 600ms ease;
+                    -moz-transition:all 600ms ease;
+                    -webkit-transition:all 600ms ease;
+
+                }
+
+
+
+
+
+
+
+            /* SHOW ADMINS RESPONSE IF ONE EXISTS /////////////////// */
+            /* ////////////////////////////////////////////////////// */
+
+                .managePostContentAdminResponsePostedContainer{
+
+                    width:100%;
+                    margin:20px 0px 0px 0px;
+                    display:block;
+                    opacity:1;
+                    padding:20px 0px;
+                    background:#f0f0f0;
+                    border-radius:8px;
+                    transition:all 600ms ease;
+                    -o-transition:all 600ms ease;
+                    -ms-transition:all 600ms ease;
+                    -moz-transition:all 600ms ease;
+                    -webkit-transition:all 600ms ease;
+
+                }
+
+
+                    .managePostContentAdminResponsePostedResizer{
+
+                        width:80%;
+                        left:0;
+                        right:0;
+                        margin:0px auto;
+                        display:inline-block;
+                        position:relative;
+                        transition:all 600ms ease;
+                        -o-transition:all 600ms ease;
+                        -ms-transition:all 600ms ease;
+                        -moz-transition:all 600ms ease;
+                        -webkit-transition:all 600ms ease;
+
+                    }
+
+
+
+
+                        
+
+
+                        /* RESPONSE TAG ACTUAL ////////////////////// */
+                        /* ////////////////////////////////////////// */
+
+                            .managePostContentAdminResponsePostedActualResponseContainer{
+
+                                width:100%;
+                                padding:10px 0px;
+                                transition:all 400ms ease;
+                                -o-transition:all 400ms ease;
+                                -ms-transition:all 400ms ease;
+                                -moz-transition:all 400ms ease;
+                                -webkit-transition:all 400ms ease;
+
+                            }
+
+                                .managePostContentAdminResponsePostedAdminNameContainer{
+
+                                    width:100%;
+                                    color:#2C2C2C;
+                                    display:block;
+                                    margin:0px 0px -8px 0px;
+                                    padding:0px 0px 0px 0px;
+                                    font-size:12px;
+                                    text-align:left;
+                                    font-weight:600;
+                                    line-height:25px;
+                                    text-transform:uppercase;
+                                    letter-spacing:2px;
+                                    transition:all 400ms ease;
+                                    -o-transition:all 400ms ease;
+                                    -ms-transition:all 400ms ease;
+                                    -moz-transition:all 400ms ease;
+                                    -webkit-transition:all 400ms ease;
+
+                                }
+
+                                    /* ADMIN POSTER NAME TAG //////// */
+                                    /* ////////////////////////////// */
+
+                                        .postAdminNameHeaderResponseTag{
+
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        }
+
+                                        .postAdminNameHeaderContainer{
+
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        }
+
+                                        
+
+                                .managePostContentAdminResponsePostedTimeStampContainer{
+
+                                    width:100%;
+                                    color:#A3A3A3;
+                                    display:inline-block;
+                                    padding:0px 0px 0px 0px;
+                                    font-size:10px;
+                                    text-align:left;
+                                    font-weight:600;
+                                    line-height:25px;
+                                    text-transform:uppercase;
+                                    letter-spacing:2px;
+                                    transition:all 400ms ease;
+                                    -o-transition:all 400ms ease;
+                                    -ms-transition:all 400ms ease;
+                                    -moz-transition:all 400ms ease;
+                                    -webkit-transition:all 400ms ease;
+
+                                }
+
+                                    /* ADMIN POSTER TIME DATE TAGS // */
+                                    /* ////////////////////////////// */
+
+                                        .postTimeHeaderResponseTag{
+
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        }
+
+                                        .postTimeDateSpacerResponseTag{
+
+                                            
+                                            display:inline-block;
+                                            padding:0px 2px;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        }
+
+                                        .postDateHeaderResponseTag{
+
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        }
+
+
+
+
+
+
+
+                    .managePostContentAdminResponsePostedAdminCommentContainer{
+
+                        width:100%;
+                        color:#2C2C2C;
+                        display:inline-block;
+                        padding:20px 0px 0px 0px;
+                        font-size:15px;
+                        text-align:left;
+                        letter-spacing:0.5px;
+                        transition:all 400ms ease;
+                        -o-transition:all 400ms ease;
+                        -ms-transition:all 400ms ease;
+                        -moz-transition:all 400ms ease;
+                        -webkit-transition:all 400ms ease;
+
+                    }
+
+            /* SHOW ADMINS RESPONSE IF ONE EXISTS /////////////////// */
+            /* ////////////////////////////////////////////////////// */
+
+
+
+
+
+
+
+            /* MANAGE POST ADMIN COMMENT SECTION //////////////////// */
+            /* ////////////////////////////////////////////////////// */
+
+                .managePostContentAdminCommentContainer{
+
+                    width:100%;
+                    margin:20px 0px 0px 0px;
+                    display:block;
+                    opacity:1;
+                    padding:30px 0px;
+                    background:#E7DD50;
+                    box-shadow:0px 30px 30px -10px rgba(0,0,0,0.25);
+                    border-radius:8px;
+                    transition:all 600ms ease;
+                    -o-transition:all 600ms ease;
+                    -ms-transition:all 600ms ease;
+                    -moz-transition:all 600ms ease;
+                    -webkit-transition:all 600ms ease;
+
+                }
+
+                    .managePostContentAdminCommentResizer{
+
+                        width:80%;
+                        left:0;
+                        right:0;
+                        margin:0px auto;
+                        display:inline-block;
+                        position:relative;
+                        transition:all 600ms ease;
+                        -o-transition:all 600ms ease;
+                        -ms-transition:all 600ms ease;
+                        -moz-transition:all 600ms ease;
+                        -webkit-transition:all 600ms ease;
+
+                    }
+
+                        /* ADMIN COMMENT INPUT SECTION ////////////// */
+                        /* ////////////////////////////////////////// */
+
+                            .managePostContentAdminCommentInputContainer{
+
+                                width:100%;
+                                padding:10px 0px;
+                                background:#FFFFFF;
+                                border-radius:8px;
+                                transition:all 600ms ease;
+                                -o-transition:all 600ms ease;
+                                -ms-transition:all 600ms ease;
+                                -moz-transition:all 600ms ease;
+                                -webkit-transition:all 600ms ease;
+
+                            }
+
+                                .managePostContentAdminCommentInputActual{
+
+                                    width:85%;
+                                    height:25px;
+                                    top:0;
+                                    left:0;
+                                    right:0;
+                                    bottom:0;
+                                    border:0px solid rgba(0,0,0,0.00);
+                                    outline:none;
+                                    display:inline-table;
+                                    position:relative;
+                                    font-size:15px;
+                                    text-align:left;
+                                    background:rgba(0,0,0,0.00);
+                                    font-family:"poppins", sans-serif;
+                                    letter-spacing:1px;
+                                    text-transform:lowercase;
+                                    transition:all 600ms ease;
+                                    -o-transition:all 600ms ease;
+                                    -ms-transition:all 600ms ease;
+                                    -moz-transition:all 600ms ease;
+                                    -webkit-transition:all 600ms ease;
+
+                                }
+
+                        /* ADMIN COMMENT SUBMIT BUTTON SECTION ////// */
+                        /* ////////////////////////////////////////// */
+
+                            .managePostContentAdminCommentSubmitButtonContainer{
+
+                                width:100%;
+                                margin:0px 0px 0px 0px;
+                                display:none;
+                                opacity:0;
+                                transition:all 600ms ease;
+                                -o-transition:all 600ms ease;
+                                -ms-transition:all 600ms ease;
+                                -moz-transition:all 600ms ease;
+                                -webkit-transition:all 600ms ease;
+
+                            }
+
+                                .managePostContentAdminCommentSubmitButtonActual{
+
+                                    width:100%;
+                                    height:50px;
+                                    float:left;
+                                    color:rgb(255, 255, 255);
+                                    cursor:pointer;
+                                    padding:0px 5px;
+                                    display:inline-table;
+                                    font-size:17px;
+                                    background:rgb(44, 44, 44);
+                                    font-family:"poppins", sans-serif;
+                                    line-height:40px;
+                                    border-radius:10px;
+                                    letter-spacing:1px;
+                                    transition:all 600ms ease;
+                                    -o-transition:all 600ms ease;
+                                    -ms-transition:all 600ms ease;
+                                    -moz-transition:all 600ms ease;
+                                    -webkit-transition:all 600ms ease;
+
+                                }

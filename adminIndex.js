@@ -78,7 +78,8 @@ const bodyparser = require("body-parser");
             area:String,
             rating:Number,
             calorie:Number,
-            comments:String
+            comments:String,
+            adminComments:String
 
         }
 
