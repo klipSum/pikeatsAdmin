@@ -3,6 +3,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
 
+require("dotenv").config()
+
+const getSeason = process.env.getOpenSeason
+const giveSeason = process.env.giveOpenSeason
+
 
 
 
@@ -74,12 +79,33 @@ const bodyparser = require("body-parser");
 
         const getPostSchema = {
 
-            image:String,
-            area:String,
-            rating:Number,
-            calorie:Number,
-            comments:String,
-            adminComments:String
+            // USER SUBMITS -------------------------------------
+            // --------------------------------------------------
+
+                userImage:String,                           // 1
+                userArea:String,                            // 2
+                userRating:Number,                          // 3
+                userCalorie:Number,                         // 4
+                userDescription:String,                     // 5
+                userTime:String,                            // 6
+                userDate:String,                            // 7
+                userReply:String,                           // 8
+                userReplyTime:String,                       // 9
+                userReplyDate:String,                       // 10
+
+            // ADMIN SUBMITS ------------------------------------
+            // --------------------------------------------------
+
+                adminComments:String,                       // 11
+                adminCommentTime:String,                    // 12
+                adminCommentDate:String,                    // 13
+
+            // IDENTIFICATION SUBMITS ---------------------------
+            // --------------------------------------------------
+
+                userId:String                               // 14
+
+
 
         }
 
@@ -108,7 +134,7 @@ const bodyparser = require("body-parser");
                 // OPEN CONNECTION FOR USERS POSTS ------------------------------
                 // --------------------------------------------------------------
 
-                    mongoose.connect("mongodb+srv://klipsumlmp:sZRAj3EnrLFPfm23@pikeats.urlwdfx.mongodb.net/pikEatsUsers?retryWrites=true&w=majority")
+                    mongoose.connect(`${getSeason}`)
 
                 // FIND ALL POSTS -----------------------------------------------
                 // --------------------------------------------------------------
@@ -120,7 +146,8 @@ const bodyparser = require("body-parser");
 
                             res.render("index", {
 
-                                postList: posts
+                                postList: posts,
+                                adminPostList: posts
 
                             });
 
@@ -149,6 +176,102 @@ const bodyparser = require("body-parser");
 
         // SETUP POST PATHS -----------------------------------------------------
         // //////////////////////////////////////////////////////////////////////
+
+            app.post("/", (req, res) => {
+
+                    // CREATE TIME AND DATE STAMPS ------------------------------
+                    // ----------------------------------------------------------
+
+                        // SETUP VARIABLES --------------------------------------
+                        // //////////////////////////////////////////////////////
+
+                            // SETUP VARIABLES FOR TIME DATE STRINGS ////////////
+                            // //////////////////////////////////////////////////
+
+                                const timeDateInitiate = new Date()
+
+                                    // SETUP VARIABLES FOR GET TIME MARKERS /////
+                                    // //////////////////////////////////////////
+
+                                        const hour = timeDateInitiate.getHours()
+                                        const minute = timeDateInitiate.getMinutes()
+
+                                    // SETUP VARIABLES FOR GET DATE MARKERS /////
+                                    // //////////////////////////////////////////
+
+                                        const day = timeDateInitiate.getDate()
+                                        const month = timeDateInitiate.getMonth()
+                                        const year = timeDateInitiate.getFullYear()
+
+
+                            // SETUP VARIABLES FOR ARRAYS ///////////////////////
+                            // //////////////////////////////////////////////////
+
+                                const monthMappers = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+
+                            // SETUP FULL CONSTRUCTED STRINGS ///////////////////
+                            // //////////////////////////////////////////////////
+
+                                // MAKE FULL TIME AND DATE STRING ///////////////
+                                // //////////////////////////////////////////////
+
+                                    var currentTime = `${hour}H${minute}`
+                                    var currentDate = `${day} ${monthMappers[month]} ${year}`
+
+                    
+                                
+
+                            // VARIABLES FOR UPDATES TO ADMIN REPLY -------------
+                            // --------------------------------------------------
+
+                                const newCommentUpdate = req.body.adminReplyActual
+                                const currentObjectToReplace = '68910d8647d76d44988bfcd6'
+
+                            // UPDATE FOUND POST USING SELECTED USERS ID --------
+                            // --------------------------------------------------
+
+                                posts.updateOne(
+                                    
+                                    {
+                                        _id: currentObjectToReplace 
+                                    
+                                    },
+                                    
+                                    {
+                                        $set: {
+                                        
+                                            adminComments: newCommentUpdate,
+                                            adminCommentTime: currentTime,
+                                            adminCommentDate: currentDate
+                                    
+                                        }
+                                    })
+
+                                .then(result => {
+                                    console.log('Update result:', result)
+                                    
+                                    if (result.acknowledged == true) {
+
+                                        console.log("UPDATED. HOORAY.")
+
+                                    }
+
+                                    else {
+
+                                        console.log("NOT UPDATED. BOO.")
+
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error updating user:', error)
+                                })
+
+                    // FINALLY RERENDER PAGE WHEN DONE --------------------------
+                    // ----------------------------------------------------------
+
+                        res.redirect("/")
+
+            })
 
 
 

@@ -61,17 +61,23 @@
 
                             var getManagePostCardUserDescription = document.querySelector(`.managePostContentUserCommentContainer`)
 
-                            var getManagePostCardAdminTime = document.querySelector(`.postTimeHeaderResponseTag`)
-                            var getManagePostCardAdminDate = document.querySelector(`.postDateHeaderResponseTag`)
-
-                            var getManagePostCardAdminComment = document.querySelector(`.managePostContentAdminResponsePostedAdminCommentContainer`)
-
 
                         // VARIABLES FOR ADMIN POST CREATION --------
                         // //////////////////////////////////////////
 
                             var getAdminReplyInputField = document.querySelector(`.managePostContentAdminCommentInputActual`)
                             var getAdminReplySubmitButtonMain = document.querySelector(`.managePostContentAdminCommentSubmitButtonContainer`)
+
+                                // VARIABLES FOR ADMIN POSTED COMMENT
+                                // //////////////////////////////////
+
+                                    var getResponseBlockMain = document.querySelector(`.managePostContentAdminResponsePostedContainer`)
+                                    var getResponseBlockResizer = document.querySelector(`.managePostContentAdminResponsePostedResizer`)
+
+                                // VARIABLES FOR ADMIN POSTED SUBMIT
+                                // //////////////////////////////////
+
+                                    var getResponseButton = document.querySelector(`.managePostContentAdminCommentSubmitButtonBlock`)
 
         
 
@@ -89,40 +95,79 @@
         // ARRAYS FOR DOCUMENT GATHER -------------------------------
         // //////////////////////////////////////////////////////////
 
-            // ARRAY FOR ID GATHER ----------------------------------
+            // FOR GENERAL USE --------------------------------------
             // //////////////////////////////////////////////////////
 
-                var gatherPostDBid = []
+                // GET CURRENT SELECTED ID --------------------------
+                // //////////////////////////////////////////////////
 
-            // ARRAY FOR IMAGE GATHER -------------------------------
+                    var currentSelectedId = []
+
+            // FOR USERS --------------------------------------------
             // //////////////////////////////////////////////////////
 
-                var gatherPostDBimage = []
+                // ARRAY FOR ID GATHER ------------------------------
+                // //////////////////////////////////////////////////
 
-            // ARRAY FOR AREA GATHER --------------------------------
+                    var gatherUserPostDBid = []
+
+                // ARRAY FOR IMAGE GATHER ---------------------------
+                // //////////////////////////////////////////////////
+
+                    var gatherUserPostDBimage = []
+
+                // ARRAY FOR AREA GATHER ----------------------------
+                // //////////////////////////////////////////////////
+
+                    var gatherUserPostDBarea = []
+
+                // ARRAY FOR RATING GATHER --------------------------
+                // //////////////////////////////////////////////////
+
+                    var gatherUserPostDBrating = []
+
+                // ARRAY FOR CALORIES GATHER ------------------------
+                // //////////////////////////////////////////////////
+
+                    var gatherUserPostDBcalorie = []
+
+                // ARRAY FOR COMMENTS GATHER ------------------------
+                // //////////////////////////////////////////////////
+
+                    var gatherPostDBuserDescription = []
+
+                // ARRAY FOR TIME DATE GATHER -----------------------
+                // //////////////////////////////////////////////////
+
+                    var gatherPostDBuserTime = []
+                    var gatherPostDBuserDate = []
+
+                // ARRAY FOR USER REPLY GATHER ----------------------
+                // //////////////////////////////////////////////////
+
+                    var gatherPostDbUserReply = []
+
+                    var gatherPostDbUserReplyTime = []
+                    var gatherPostDbUserReplyDate = []
+
+            // FOR ADMINS -------------------------------------------
             // //////////////////////////////////////////////////////
 
-                var gatherPostDBarea = []
+                // ARRAY FOR ADMIN COMMENTS GATHER ------------------
+                // //////////////////////////////////////////////////
 
-            // ARRAY FOR RATING GATHER ------------------------------
+                    var gatherPostDBadminComments = []
+
+                // ARRAY FOR ADMIN TIME DATE GATHER -----------------
+                // //////////////////////////////////////////////////
+
+                    var gatherPostDBadminCommentsTime = []
+                    var gatherPostDBadminCommentsDate = []
+
+            // FOR ID COLLECTTIONS ----------------------------------
             // //////////////////////////////////////////////////////
 
-                var gatherPostDBrating = []
-
-            // ARRAY FOR CALORIES GATHER ----------------------------
-            // //////////////////////////////////////////////////////
-
-                var gatherPostDBcalorie = []
-
-            // ARRAY FOR COMMENTS GATHER ----------------------------
-            // //////////////////////////////////////////////////////
-
-                var gatherPostDBcomments = []
-
-            // ARRAY FOR ADMIN COMMENTS GATHER ----------------------
-            // //////////////////////////////////////////////////////
-
-                var gatherPostDBadminComments = []
+                    var gatherPostDBuserId = []
 
         // ARRAYS FOR GATHERED CARDS MAIN CLASSNAMES ----------------
         // //////////////////////////////////////////////////////////
@@ -134,9 +179,26 @@
 
             var arrayAlignerForItemsPush = [
 
-                gatherPostDBid, gatherPostDBimage, gatherPostDBarea,
-                gatherPostDBrating, gatherPostDBcalorie, gatherPostDBcomments,
-                gatherPostDBadminComments
+
+                // USERS SECTION ------------------------------------
+                // --------------------------------------------------
+
+                    gatherUserPostDBid, gatherUserPostDBimage, gatherUserPostDBarea,
+                    gatherUserPostDBrating, gatherUserPostDBcalorie, gatherPostDBuserDescription,
+                    gatherPostDBuserTime, gatherPostDBuserDate, gatherPostDbUserReply,
+                    gatherPostDbUserReplyTime, gatherPostDbUserReplyDate,
+
+
+                // ADMIN SECTION ------------------------------------
+                // --------------------------------------------------
+
+                    gatherPostDBadminComments, gatherPostDBadminCommentsTime, gatherPostDBadminCommentsDate,
+
+
+                // ID SECTION ---------------------------------------
+                // --------------------------------------------------
+
+                    gatherPostDBuserId
 
             ]
             
@@ -353,6 +415,8 @@
 
                                                                 // POPULATE ARRAYS WITH INFO COLLECTED
                                                                 // ---------
+
+                                                                    console.log("THIS THING: " + makeItemCollectString)
 
                                                                     arrayAlignerForItemsPush[grandChildrenCounter].push(makeItemCollectString)
 
@@ -1112,6 +1176,8 @@
                                                 display:inline-block;
                                                 font-size:17px;
                                                 text-align:left;
+                                                letter-spacing:1px;
+                                                text-transform:uppercase;
                                                 transition:all 600ms ease;
                                                 -o-transition:all 600ms ease;
                                                 -ms-transition:all 600ms ease;
@@ -1123,7 +1189,7 @@
                                         // ADD TEXT TO ID TEXT ACTUAL =
                                         // ==============================
 
-                                            createGeneralPostHostIDTextActualContainer.textContent = `by: ${arrayAlignerForItemsPush[0][ClassNumberSelector]}`
+                                            createGeneralPostHostIDTextActualContainer.textContent = `BY: ${String(arrayAlignerForItemsPush[14][ClassNumberSelector]).toUpperCase()}`
 
                                         // APPEND ID TEXT ACTUAL TO PARENT ID MAIN BOX
                                         // ==============================
@@ -1742,13 +1808,13 @@
                         
 
 
-                                // CREATE POST GENERAL HOST AREA ACTUAL TEXT 
+                                // CREATE POST GENERAL HOST DESCRIPTION ACTUAL TEXT 
                                 // ======================================
 
                                     var createGeneralPostHostCommentsTextActualContainer = document.createElement(`div`)
                                     createGeneralPostHostCommentsTextActualContainer.className = `postGeneralHostBlockCommentsResizer${classNumbers[ClassNumberSelector]}`
 
-                                        // STYLE COMMENTS TEXT ACTUAL CONTAINER MAIN
+                                        // STYLE DESCRIPTION TEXT ACTUAL CONTAINER MAIN
                                         // ==============================
 
                                             createGeneralPostHostCommentsTextActualContainer.style = `
@@ -1766,18 +1832,18 @@
 
                                             `
 
-                                        // ADD TEXT TO COMMENTS TEXT ACTUAL
+                                        // ADD TEXT TO DESCRIPTION TEXT ACTUAL
                                         // ==============================
 
                                             createGeneralPostHostCommentsTextActualContainer.textContent = `${arrayAlignerForItemsPush[5][ClassNumberSelector]}`
 
-                                        // APPEND COMMENTS TO POST HOST CONTAINER MAIN
+                                        // APPEND DESCRIPTION TO POST HOST CONTAINER MAIN
                                         // ==============================
 
                                             createGeneralPostHostCommentsContainer.appendChild(createGeneralPostHostCommentsTextActualContainer)
 
 
-                                                // PUSH COMMENTS BLOCKS CLASS NAMES TO CLASSNAME ARRAY HOLDER
+                                                // PUSH DESCRIPTION BLOCKS CLASS NAMES TO CLASSNAME ARRAY HOLDER
                                                 // ======================
 
                                                     arrayForCommentsBlocks.push(`postGeneralHostBlockCommentsContainer${classNumbers[ClassNumberSelector]}`)
@@ -2167,81 +2233,30 @@
     // POST REPLY FUNCTIONS -----------------------------------------
     // --------------------------------------------------------------
 
-        function postAdminReplyFunction () {
 
-            // SHOW HIDE SUBMIT ADMIN POST REPLY --------------------
+            // ADMIN REPLY COMMENT DISPLAY BLOCK FUNCTIONS ----------
             // ------------------------------------------------------
 
-                // IF CHARACTERS ARE BELOW LIMIT OR 0 ---------------
+                // SHOW HIDE ADMIN COMMENT DISPLAY BLOCK ------------
                 // --------------------------------------------------
 
-                    // IF CHARACTERS EQUAL 0 THEN HIDE BUTTON -------
+                    // SHOW ADMIN COMMENT DISPLAY BLOCK -------------
                     // ----------------------------------------------
 
-                        if ( getAdminReplyInputField.value.length == 0 ) {
+                        function showAdminCommentDisplayBlockFunction () {
 
-                            if ( getAdminReplySubmitButtonMain.style.display = "none" ) {
+                            // MAKE LIVE ----------------------------
+                            // //////////////////////////////////////
 
-                            }
-
-                            else {
-
-                                hidePostAdminReplySubmitButton()
-
-                            }
-
-                        }
-
-                    // IF CHARACTERS UNDER LIMIT THEN HIDE BUTTON ---
-                    // ----------------------------------------------
-
-                        else if ( getAdminReplyInputField.value.length < 50 ) {
-
-                            if ( getAdminReplySubmitButtonMain.style.display = "none" ) {
-
-                            }
-
-                            else {
-
-                                hidePostAdminReplySubmitButton()
-
-                            }
-
-                        }
-
-                    // IF CHARACTERS OVER LIMIT THEN SHOW BUTTON ----
-                    // ----------------------------------------------
-
-                        else if ( getAdminReplyInputField.value.length > 50 ) {
-
-                            showPostAdminReplySubmitButton()
-
-                        }
-
-
-        }
-
-
-            // SHOW ADMIN POST BUTTON -------------------------------
-            // ------------------------------------------------------
-
-                function showPostAdminReplySubmitButton () {
-
-
-                    // CHECK IF BUTTON IS NOT VISIBLE AND BRING BACK 
-                    // ----------------------------------------------
-
-                        if ( getAdminReplySubmitButtonMain.style.display = "none" ) {
-
-                            // MAKE BUTTON LIVE ---------------------
-                            // --------------------------------------
-
-                                getAdminReplySubmitButtonMain.style = `
+                                getResponseBlockMain.style = `
                                 
                                     width:100%;
                                     margin:0px 0px 0px 0px;
                                     display:block;
                                     opacity:0;
+                                    padding:20px 0px;
+                                    background:#F0F0F0;
+                                    border-radius:8px;
                                     transition:all 600ms ease;
                                     -o-transition:all 600ms ease;
                                     -ms-transition:all 600ms ease;
@@ -2250,17 +2265,20 @@
 
                                 `
 
-                                    // FADE BUTTON IN ---------------
-                                    // ------------------------------
+                                    // THEN FADE IN -----------------
+                                    // //////////////////////////////
 
                                         setTimeout(() => {
 
-                                            getAdminReplySubmitButtonMain.style = `
-                                            
+                                            getResponseBlockMain.style = `
+                                
                                                 width:100%;
                                                 margin:20px 0px 0px 0px;
                                                 display:block;
                                                 opacity:1;
+                                                padding:20px 0px;
+                                                background:#F0F0F0;
+                                                border-radius:8px;
                                                 transition:all 600ms ease;
                                                 -o-transition:all 600ms ease;
                                                 -ms-transition:all 600ms ease;
@@ -2269,34 +2287,27 @@
 
                                             `
 
-                                        }, 5)
+                                        },50)
 
                         }
 
-
-                }
-
-
-            // HIDE ADMIN POST BUTTON -------------------------------
-            // ------------------------------------------------------
-
-                function hidePostAdminReplySubmitButton () {
-
-
-                    // CHECK IF BUTTON ALREADY IS VISIBLE AND REMOVE 
+                    // HIDE ADMIN COMMENT DISPLAY BLOCK -------------
                     // ----------------------------------------------
 
-                        if ( getAdminReplySubmitButtonMain.style.display = "block" ) {
+                        function hideAdminCommentDisplayBlockFunction () {
 
-                            // FADE OUT BUTTON ----------------------
+                            // FADE OUT -----------------------------
                             // --------------------------------------
 
-                                getAdminReplySubmitButtonMain.style = `
+                                getResponseBlockMain.style = `
                                 
                                     width:100%;
                                     margin:0px 0px 0px 0px;
                                     display:block;
                                     opacity:0;
+                                    padding:20px 0px;
+                                    background:#F0F0F0;
+                                    border-radius:8px;
                                     transition:all 600ms ease;
                                     -o-transition:all 600ms ease;
                                     -ms-transition:all 600ms ease;
@@ -2305,17 +2316,20 @@
 
                                 `
 
-                                    // KILL BUTTON ------------------
+                                    // KILL BLOCK -------------------
                                     // ------------------------------
 
                                         setTimeout(() => {
 
-                                            getAdminReplySubmitButtonMain.style = `
-                                            
+                                            getResponseBlockMain.style = `
+                                
                                                 width:100%;
                                                 margin:0px 0px 0px 0px;
                                                 display:none;
                                                 opacity:0;
+                                                padding:20px 0px;
+                                                background:#F0F0F0;
+                                                border-radius:8px;
                                                 transition:all 600ms ease;
                                                 -o-transition:all 600ms ease;
                                                 -ms-transition:all 600ms ease;
@@ -2324,12 +2338,836 @@
 
                                             `
 
-                                        }, 300)
+                                        },300)
+
+                        }
+
+                // ADD COMMENT TO BLOCK -----------------------------
+                // --------------------------------------------------
+
+                    // MAKE USER COMMENT BLOCK AND ADD TEXT ---------
+                    // ----------------------------------------------
+
+                        function createUserReplyBlock (commentTextNumber) {
+
+                            // VARIABLES DECLARE --------------------
+                            // --------------------------------------
+
+                                var createUserPostMainBlock = document.createElement(`div`)
+
+                                    var createUserPostHostReplyNameTag = document.createElement(`div`)
+
+                                        var createUserPostHostResponseTag = document.createElement(`div`)
+                                        var createUserPostHostResponseNameTag = document.createElement(`div`)
+
+                                    var createUserPostHostReplyTimeDateTag = document.createElement(`div`)
+
+                                        var createUserPostHostResponseTimeTag = document.createElement(`div`)
+                                        var createUserPostHostResponsePipeTag = document.createElement(`div`)
+                                        var createUserPostHostResponseDateTag = document.createElement(`div`)
+
+                                    var createUserPostHostReplyDescriptionActual = document.createElement(`div`)
+
+                            // CLASSNAMES DECLARE -------------------
+                            // --------------------------------------
+
+                                createUserPostMainBlock.className = `managePostContentUserResponsePostedActualResponseContainer${classNumbers[commentTextNumber]}`
+
+                                    createUserPostHostReplyNameTag.className = `managePostContentUserResponsePostedUserNameContainer${classNumbers[commentTextNumber]}`
+
+                                        createUserPostHostResponseTag.className = `postUserNameHeaderResponseTag${classNumbers[commentTextNumber]}`
+                                        createUserPostHostResponseNameTag.className = `postUserNameHeaderContainer${classNumbers[commentTextNumber]}`
+
+                                    createUserPostHostReplyTimeDateTag.className = `managePostContentUserResponsePostedTimeStampContainer${classNumbers[commentTextNumber]}`
+
+                                        createUserPostHostResponseTimeTag.className = `postUserTimeHeaderResponseTag${classNumbers[commentTextNumber]}`
+                                        createUserPostHostResponsePipeTag.className = `postUserTimeDateSpacerResponseTag${classNumbers[commentTextNumber]}`
+                                        createUserPostHostResponseDateTag.className = `postUserDateHeaderResponseTag${classNumbers[commentTextNumber]}`
+
+                                    createUserPostHostReplyDescriptionActual.className = `managePostContentUserResponsePostedUserDescriptionContainer${classNumbers[commentTextNumber]}`
+
+                            // VARIABLE STYLING ---------------------
+                            // --------------------------------------
+
+                                createUserPostMainBlock.style = `
+                                
+                                    width:100%;
+                                    padding:10px 0px;
+                                    transition:all 400ms ease;
+                                    -o-transition:all 400ms ease;
+                                    -ms-transition:all 400ms ease;
+                                    -moz-transition:all 400ms ease;
+                                    -webkit-transition:all 400ms ease;
+
+                                `
+
+                                    createUserPostHostReplyNameTag.style = `
+                                    
+                                        width:100%;
+                                        color:#2C2C2C;
+                                        display:block;
+                                        margin:0px 0px -8px 0px;
+                                        padding:0px 0px 0px 0px;
+                                        font-size:12px;
+                                        text-align:left;
+                                        font-weight:600;
+                                        line-height:25px;
+                                        text-transform:uppercase;
+                                        letter-spacing:2px;
+                                        transition:all 400ms ease;
+                                        -o-transition:all 400ms ease;
+                                        -ms-transition:all 400ms ease;
+                                        -moz-transition:all 400ms ease;
+                                        -webkit-transition:all 400ms ease;
+
+                                    `
+
+                                        createUserPostHostResponseTag.style = `
+                                        
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        `
+
+                                        createUserPostHostResponseNameTag.style = `
+                                        
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        `
+
+                                    createUserPostHostReplyTimeDateTag.style = `
+                                    
+                                        width:100%;
+                                        color:#A3A3A3;
+                                        display:inline-block;
+                                        padding:0px 0px 0px 0px;
+                                        font-size:10px;
+                                        text-align:left;
+                                        font-weight:600;
+                                        line-height:25px;
+                                        text-transform:uppercase;
+                                        letter-spacing:2px;
+                                        transition:all 400ms ease;
+                                        -o-transition:all 400ms ease;
+                                        -ms-transition:all 400ms ease;
+                                        -moz-transition:all 400ms ease;
+                                        -webkit-transition:all 400ms ease;
+
+                                    `
+
+                                        createUserPostHostResponseTimeTag.style = `
+                                        
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        `
+
+                                        createUserPostHostResponsePipeTag.style = `
+                                        
+                                            display:inline-block;
+                                            padding:0px 2px;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        `
+
+                                        createUserPostHostResponseDateTag.style = `
+                                        
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        `
+
+                                    createUserPostHostReplyDescriptionActual.style = `
+                                    
+                                        width:100%;
+                                        color:#2C2C2C;
+                                        display:inline-block;
+                                        padding:20px 0px 0px 0px;
+                                        font-size:15px;
+                                        text-align:left;
+                                        letter-spacing:0.5px;
+                                        transition:all 400ms ease;
+                                        -o-transition:all 400ms ease;
+                                        -ms-transition:all 400ms ease;
+                                        -moz-transition:all 400ms ease;
+                                        -webkit-transition:all 400ms ease;
+
+                                    `
+
+                            // ADD TEXT TO VARIABLES ----------------
+                            // --------------------------------------
+
+                                createUserPostHostResponseTag.textContent = `COMMENT BY: `
+                                createUserPostHostResponseNameTag.textContent = `${arrayAlignerForItemsPush[14][commentTextNumber]}`
+
+                                createUserPostHostResponseTimeTag.textContent = `${arrayAlignerForItemsPush[6][commentTextNumber]}`
+                                createUserPostHostResponsePipeTag.textContent = `|`
+                                createUserPostHostResponseDateTag.textContent = `${arrayAlignerForItemsPush[7][commentTextNumber]}`
+
+                                createUserPostHostReplyDescriptionActual.textContent = `${arrayAlignerForItemsPush[5][commentTextNumber]}`
+
+                            // APPEND VARIABLES TO BLOCKS -----------
+                            // --------------------------------------
+
+                                getResponseBlockResizer.appendChild(createUserPostMainBlock)
+
+                                    createUserPostMainBlock.appendChild(createUserPostHostReplyNameTag)
+
+                                        createUserPostHostReplyNameTag.appendChild(createUserPostHostResponseTag)
+                                        createUserPostHostReplyNameTag.appendChild(createUserPostHostResponseNameTag)
+
+                                    createUserPostMainBlock.appendChild(createUserPostHostReplyTimeDateTag)
+
+                                        createUserPostHostReplyTimeDateTag.appendChild(createUserPostHostResponseTimeTag)
+                                        createUserPostHostReplyTimeDateTag.appendChild(createUserPostHostResponsePipeTag)
+                                        createUserPostHostReplyTimeDateTag.appendChild(createUserPostHostResponseDateTag)
+
+                                    createUserPostMainBlock.appendChild(createUserPostHostReplyCommentActual)
+
+                        }
+
+                    // MAKE COMMENT BLOCK AND ADD TEXT --------------
+                    // ----------------------------------------------
+
+                        function createCommentBlock (commentTextNumber) {
+
+                            // VARIABLES DECLARE --------------------
+                            // --------------------------------------
+
+                                var createAdminPostMainBlock = document.createElement(`div`)
+
+                                    var createAdminPostHostReplyNameTag = document.createElement(`div`)
+
+                                        var createAdminPostHostResponseTag = document.createElement(`div`)
+                                        var createAdminPostHostResponseNameTag = document.createElement(`div`)
+
+                                    var createAdminPostHostReplyTimeDateTag = document.createElement(`div`)
+
+                                        var createAdminPostHostResponseTimeTag = document.createElement(`div`)
+                                        var createAdminPostHostResponsePipeTag = document.createElement(`div`)
+                                        var createAdminPostHostResponseDateTag = document.createElement(`div`)
+
+                                    var createAdminPostHostReplyCommentActual = document.createElement(`div`)
+
+                            // CLASSNAMES DECLARE -------------------
+                            // --------------------------------------
+
+                                createAdminPostMainBlock.className = `managePostContentAdminResponsePostedActualResponseContainer${classNumbers[commentTextNumber]}`
+
+                                    createAdminPostHostReplyNameTag.className = `managePostContentAdminResponsePostedAdminNameContainer${classNumbers[commentTextNumber]}`
+
+                                        createAdminPostHostResponseTag.className = `postAdminNameHeaderResponseTag${classNumbers[commentTextNumber]}`
+                                        createAdminPostHostResponseNameTag.className = `postAdminNameHeaderContainer${classNumbers[commentTextNumber]}`
+
+                                    createAdminPostHostReplyTimeDateTag.className = `managePostContentAdminResponsePostedTimeStampContainer${classNumbers[commentTextNumber]}`
+
+                                        createAdminPostHostResponseTimeTag.className = `postTimeHeaderResponseTag${classNumbers[commentTextNumber]}`
+                                        createAdminPostHostResponsePipeTag.className = `postTimeDateSpacerResponseTag${classNumbers[commentTextNumber]}`
+                                        createAdminPostHostResponseDateTag.className = `postDateHeaderResponseTag${classNumbers[commentTextNumber]}`
+
+                                    createAdminPostHostReplyCommentActual.className = `managePostContentAdminResponsePostedAdminCommentContainer${classNumbers[commentTextNumber]}`
+
+                            // VARIABLE STYLING ---------------------
+                            // --------------------------------------
+
+                                createAdminPostMainBlock.style = `
+                                
+                                    width:100%;
+                                    padding:10px 0px;
+                                    transition:all 400ms ease;
+                                    -o-transition:all 400ms ease;
+                                    -ms-transition:all 400ms ease;
+                                    -moz-transition:all 400ms ease;
+                                    -webkit-transition:all 400ms ease;
+
+                                `
+
+                                    createAdminPostHostReplyNameTag.style = `
+                                    
+                                        width:100%;
+                                        color:#2C2C2C;
+                                        display:block;
+                                        margin:0px 0px -8px 0px;
+                                        padding:0px 0px 0px 0px;
+                                        font-size:12px;
+                                        text-align:left;
+                                        font-weight:600;
+                                        line-height:25px;
+                                        text-transform:uppercase;
+                                        letter-spacing:2px;
+                                        transition:all 400ms ease;
+                                        -o-transition:all 400ms ease;
+                                        -ms-transition:all 400ms ease;
+                                        -moz-transition:all 400ms ease;
+                                        -webkit-transition:all 400ms ease;
+
+                                    `
+
+                                        createAdminPostHostResponseTag.style = `
+                                        
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        `
+
+                                        createAdminPostHostResponseNameTag.style = `
+                                        
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        `
+
+                                    createAdminPostHostReplyTimeDateTag.style = `
+                                    
+                                        width:100%;
+                                        color:#A3A3A3;
+                                        display:inline-block;
+                                        padding:0px 0px 0px 0px;
+                                        font-size:10px;
+                                        text-align:left;
+                                        font-weight:600;
+                                        line-height:25px;
+                                        text-transform:uppercase;
+                                        letter-spacing:2px;
+                                        transition:all 400ms ease;
+                                        -o-transition:all 400ms ease;
+                                        -ms-transition:all 400ms ease;
+                                        -moz-transition:all 400ms ease;
+                                        -webkit-transition:all 400ms ease;
+
+                                    `
+
+                                        createAdminPostHostResponseTimeTag.style = `
+                                        
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        `
+
+                                        createAdminPostHostResponsePipeTag.style = `
+                                        
+                                            display:inline-block;
+                                            padding:0px 2px;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        `
+
+                                        createAdminPostHostResponseDateTag.style = `
+                                        
+                                            width:max-content;
+                                            display:inline-block;
+                                            transition:all 400ms ease;
+                                            -o-transition:all 400ms ease;
+                                            -ms-transition:all 400ms ease;
+                                            -moz-transition:all 400ms ease;
+                                            -webkit-transition:all 400ms ease;
+
+                                        `
+
+                                    createAdminPostHostReplyCommentActual.style = `
+                                    
+                                        width:100%;
+                                        color:#2C2C2C;
+                                        display:inline-block;
+                                        padding:20px 0px 0px 0px;
+                                        font-size:15px;
+                                        text-align:left;
+                                        letter-spacing:0.5px;
+                                        transition:all 400ms ease;
+                                        -o-transition:all 400ms ease;
+                                        -ms-transition:all 400ms ease;
+                                        -moz-transition:all 400ms ease;
+                                        -webkit-transition:all 400ms ease;
+
+                                    `
+
+                            // ADD TEXT TO VARIABLES ----------------
+                            // --------------------------------------
+
+                                createAdminPostHostResponseTag.textContent = `RESPONSE BY: `
+                                createAdminPostHostResponseNameTag.textContent = `NEOM`
+
+                                createAdminPostHostResponseTimeTag.textContent = `${arrayAlignerForItemsPush[12][commentTextNumber]}`
+                                createAdminPostHostResponsePipeTag.textContent = `|`
+                                createAdminPostHostResponseDateTag.textContent = `${arrayAlignerForItemsPush[13][commentTextNumber]}`
+
+                                createAdminPostHostReplyCommentActual.textContent = `${arrayAlignerForItemsPush[11][commentTextNumber]}`
+
+                            // APPEND VARIABLES TO BLOCKS -----------
+                            // --------------------------------------
+
+                                getResponseBlockResizer.appendChild(createAdminPostMainBlock)
+
+                                    createAdminPostMainBlock.appendChild(createAdminPostHostReplyNameTag)
+
+                                        createAdminPostHostReplyNameTag.appendChild(createAdminPostHostResponseTag)
+                                        createAdminPostHostReplyNameTag.appendChild(createAdminPostHostResponseNameTag)
+
+                                    createAdminPostMainBlock.appendChild(createAdminPostHostReplyTimeDateTag)
+
+                                        createAdminPostHostReplyTimeDateTag.appendChild(createAdminPostHostResponseTimeTag)
+                                        createAdminPostHostReplyTimeDateTag.appendChild(createAdminPostHostResponsePipeTag)
+                                        createAdminPostHostReplyTimeDateTag.appendChild(createAdminPostHostResponseDateTag)
+
+                                    createAdminPostMainBlock.appendChild(createAdminPostHostReplyCommentActual)
+
+                            // ADD USER REPLY AFTER EACH ADMIN POST -
+                            // --------------------------------------
+
+                                // FIRST CHECK IF USER REPLY EXISTS THEN POST REPLY BLOCK
+                                // ----------------------------------
+
+                                    // IF REPLY DOES NOT EXIST THEN SKIP
+                                    // ------------------------------
+
+                                        if ( arrayAlignerForItemsPush[8][commentTextNumber] == "" ) {
+
+                                            console.log("NO USER REPLY...")
+                                            
+                                        }
+
+                                    // IF REPLY EXISTS THEN ADD REPLY
+                                    // ------------------------------
+
+                                        else {
+                                            
+                                            createUserReplyBlock(commentTextNumber)
+                                            
+                                        }
+
+                                    
+
+                        }
+
+                    // CREATE NEW ADMIN REPLY COMMENT AFTER BUTTON IS CLICKED
+                    // ----------------------------------------------
+
+                        function createNewAdminReplyFunction () {
+
+                            // FIRST CREATE QUICK DROP FORM FOR SUBMISSION
+                            // --------------------------------------
+
+                                // GET EXISTING ELEMENTS ------------
+                                // ----------------------------------
+
+                                    var getOpenCommentsPanelMainContainer = document.querySelector(`.managePostContentContainer`)
+
+                                    var getOpenCommentsPanelAdminCommentText = document.querySelector(`.managePostContentAdminCommentInputActual`).value
+
+                                // VARIABLES FOR POST BLOCK CREATION 
+                                // ----------------------------------
+
+                                    var createAdminSubmitForm = document.createElement(`form`)
+
+                                        var createContentContainer = document.createElement(`div`)
+
+                                            var createAdminReplyUserIdBlockContainer = document.createElement(`div`)
+                                                var createAdminReplyUserIdBlockInput = document.createElement(`input`)
+
+                                            var createAdminReplyCommentBlockContainer = document.createElement(`div`)
+                                                var createAdminReplyCommentBlockInput = document.createElement(`input`)
+
+                                            var createAdminReplyCommentSubmitButton = document.createElement(`button`)
+
+                                // ADD CLASS NAME TO NEWLY CREATED VARIABLES 
+                                // ----------------------------------
+
+                                    createAdminSubmitForm.className = `postAdminReplyFormContainer`
+
+                                        createContentContainer.className = `postAdminReplyContentContainer`
+
+                                            createAdminReplyUserIdBlockContainer.className = `postAdminReplyTimeContainer`
+                                                createAdminReplyUserIdBlockInput.className = `postAdminReplyTimeInput`
+
+                                            createAdminReplyCommentBlockContainer.className = `postAdminReplyCommentContainer`
+                                                createAdminReplyCommentBlockInput.className = `postAdminReplyCommentInput`
+
+                                            createAdminReplyCommentSubmitButton.className = `managePostContentAdminCommentSubmitButtonActual`
+
+                                // ADD ATTRIBUTES TO NEWLY CREATE VARIABLES 
+                                // ----------------------------------
+
+                                    createAdminSubmitForm.setAttribute(`method`,`post`)
+                                    createAdminSubmitForm.setAttribute(`action`,`/`)
+
+                                        createAdminReplyUserIdBlockInput.setAttribute(`name`,`adminReplyUserId`)
+                                        createAdminReplyUserIdBlockInput.setAttribute(`type`,`text`)
+                                        createAdminReplyUserIdBlockInput.setAttribute(`placeholder`,`user id...`)
+
+                                        createAdminReplyCommentBlockInput.setAttribute(`name`,`adminReplyActual`)
+                                        createAdminReplyCommentBlockInput.setAttribute(`type`,`text`)
+                                        createAdminReplyCommentBlockInput.setAttribute(`placeholder`,`admin reply actual...`)
+
+                                // ADD TEXT UPDATES TO INPUT FIELDS -
+                                // ----------------------------------
+
+                                    createAdminReplyUserIdBlockInput.value =  `${currentSelectedId[0]}`
+                                    createAdminReplyCommentBlockInput.value = `${getOpenCommentsPanelAdminCommentText}`
+
+                                    createAdminReplyCommentSubmitButton.textContent = `sub`
+
+                                // STYLE NEWLY CREATED VARIABLES ---- 
+                                // ----------------------------------
+
+                                    createAdminSubmitForm.style = `
+                                    
+                                        width:100%;
+                                        margin:20px 0px 0px 0px;
+                                        display:none;
+                                        opacity:1;
+                                        padding:15px 0px;
+                                        position:relative;
+                                        background:#2C2C2C;
+                                        border-radius:10px;
+                                        transition:all 600ms ease;
+                                        -o-transition:all 600ms ease;
+                                        -ms-transition:all 600ms ease;
+                                        -moz-transition:all 600ms ease;
+                                        -webkit-transition:all 600ms ease;
+
+                                    `
+
+                                        createContentContainer.style = `
+                                        
+                                            width:90%;
+                                            height:90%;
+                                            top:0;
+                                            left:0;
+                                            right:0;
+                                            bottom:0;
+                                            margin:0px auto;
+                                            padding:10px 0px;
+                                            position:relative;
+                                            transition:all 600ms ease;
+                                            -o-transition:all 600ms ease;
+                                            -ms-transition:all 600ms ease;
+                                            -moz-transition:all 600ms ease;
+                                            -webkit-transition:all 600ms ease;
+
+                                        `
+
+                                            createAdminReplyUserIdBlockContainer.style = `
+                                            
+                                                width:100%;
+                                                height:20px;
+                                                padding:10px 0px;
+                                                position:relative;
+                                                margin-top:10px;
+                                                background:#2C2C2C;
+                                                border-radius:5px;
+                                                transition:all 600ms ease;
+                                                -o-transition:all 600ms ease;
+                                                -ms-transition:all 600ms ease;
+                                                -moz-transition:all 600ms ease;
+                                                -webkit-transition:all 600ms ease;
+
+                                            `
+                                                createAdminReplyUserIdBlockInput.style = `
+                                                
+                                                    width:90%;
+                                                    height:20px;
+                                                    top:0;
+                                                    left:0;
+                                                    right:0;
+                                                    bottom:0;
+                                                    margin:auto;
+                                                    position:absolute;
+                                                    background:#FFFFFF;
+                                                    transition:all 600ms ease;
+                                                    -o-transition:all 600ms ease;
+                                                    -ms-transition:all 600ms ease;
+                                                    -moz-transition:all 600ms ease;
+                                                    -webkit-transition:all 600ms ease;
+
+                                                `
+
+                                            createAdminReplyCommentBlockContainer.style = `
+                                            
+                                                width:100%;
+                                                height:20px;
+                                                padding:10px 0px;
+                                                position:relative;
+                                                margin-top:10px;
+                                                background:#2C2C2C;
+                                                border-radius:5px;
+                                                transition:all 600ms ease;
+                                                -o-transition:all 600ms ease;
+                                                -ms-transition:all 600ms ease;
+                                                -moz-transition:all 600ms ease;
+                                                -webkit-transition:all 600ms ease;
+
+                                            `
+                                                createAdminReplyCommentBlockInput.style = `
+                                                
+                                                    width:90%;
+                                                    height:20px;
+                                                    top:0;
+                                                    left:0;
+                                                    right:0;
+                                                    bottom:0;
+                                                    margin:auto;
+                                                    position:absolute;
+                                                    background:#FFFFFF;
+                                                    transition:all 600ms ease;
+                                                    -o-transition:all 600ms ease;
+                                                    -ms-transition:all 600ms ease;
+                                                    -moz-transition:all 600ms ease;
+                                                    -webkit-transition:all 600ms ease;
+
+                                                `
+
+                                            createAdminReplyCommentSubmitButton.style = `
+                                            
+                                                width:100%;
+                                                height:50px;
+                                                float:left;
+                                                color:#2C2C2C;
+                                                cursor:pointer;
+                                                padding:0px 5px;
+                                                display:inline-table;
+                                                position:relative;
+                                                font-size:17px;
+                                                background:#FFFFFF;
+                                                line-height:45px;
+                                                font-family:"poppins", sans-serif;
+                                                border-radius:10px;
+                                                letter-spacing:1px;
+                                                transition:all 600ms ease;
+                                                -o-transition:all 600ms ease;
+                                                -ms-transition:all 600ms ease;
+                                                -moz-transition:all 600ms ease;
+                                                -webkit-transition:all 600ms ease;
+
+                                            `
+
+                                // APPEND VARIABLES TO STAGE BLOCK -- 
+                                // ----------------------------------
+
+                                    getOpenCommentsPanelMainContainer.appendChild(createAdminSubmitForm)
+
+                                        createAdminSubmitForm.appendChild(createContentContainer)
+
+                                            createContentContainer.appendChild(createAdminReplyUserIdBlockContainer)
+                                                createAdminReplyUserIdBlockContainer.appendChild(createAdminReplyUserIdBlockInput)
+
+                                            createContentContainer.appendChild(createAdminReplyCommentBlockContainer)
+                                                createAdminReplyCommentBlockContainer.appendChild(createAdminReplyCommentBlockInput)
+
+                                            createContentContainer.appendChild(createAdminReplyCommentSubmitButton)
 
                         }
 
 
+            // ADMIN REPLY BUTTON BEHVIOUR --------------------------
+            // ------------------------------------------------------
+
+                function adminReplyButtonBehaviourFunction () {
+
+                    // SHOW HIDE SUBMIT ADMIN POST REPLY --------------------
+                    // ------------------------------------------------------
+
+                        // IF CHARACTERS ARE BELOW LIMIT OR 0 ---------------
+                        // --------------------------------------------------
+
+                            // IF CHARACTERS EQUAL 0 THEN HIDE BUTTON -------
+                            // ----------------------------------------------
+
+                                if ( getAdminReplyInputField.value.length == 0 ) {
+
+                                    if ( getAdminReplySubmitButtonMain.style.display = "none" ) {
+
+                                    }
+
+                                    else {
+
+                                        hidePostAdminReplySubmitButton()
+
+                                    }
+
+                                }
+
+                            // IF CHARACTERS UNDER LIMIT THEN HIDE BUTTON ---
+                            // ----------------------------------------------
+
+                                else if ( getAdminReplyInputField.value.length < 50 ) {
+
+                                    if ( getAdminReplySubmitButtonMain.style.display = "none" ) {
+
+                                    }
+
+                                    else {
+
+                                        hidePostAdminReplySubmitButton()
+
+                                    }
+
+                                }
+
+                            // IF CHARACTERS OVER LIMIT THEN SHOW BUTTON ----
+                            // ----------------------------------------------
+
+                                else if ( getAdminReplyInputField.value.length > 50 ) {
+
+                                    showPostAdminReplySubmitButton()
+
+                                }
+
+
                 }
+
+
+                    // SHOW ADMIN POST BUTTON -----------------------
+                    // ----------------------------------------------
+
+                        function showPostAdminReplySubmitButton () {
+
+
+                            // CHECK IF BUTTON IS NOT VISIBLE AND BRING BACK 
+                            // --------------------------------------
+
+                                if ( getAdminReplySubmitButtonMain.style.display = "none" ) {
+
+                                    // MAKE BUTTON LIVE -------------
+                                    // ------------------------------
+
+                                        getAdminReplySubmitButtonMain.style = `
+                                        
+                                            width:100%;
+                                            margin:0px 0px 0px 0px;
+                                            display:block;
+                                            opacity:0;
+                                            transition:all 600ms ease;
+                                            -o-transition:all 600ms ease;
+                                            -ms-transition:all 600ms ease;
+                                            -moz-transition:all 600ms ease;
+                                            -webkit-transition:all 600ms ease;
+
+                                        `
+
+                                            // FADE BUTTON IN -------
+                                            // ----------------------
+
+                                                setTimeout(() => {
+
+                                                    getAdminReplySubmitButtonMain.style = `
+                                                    
+                                                        width:100%;
+                                                        margin:20px 0px 0px 0px;
+                                                        display:block;
+                                                        opacity:1;
+                                                        transition:all 600ms ease;
+                                                        -o-transition:all 600ms ease;
+                                                        -ms-transition:all 600ms ease;
+                                                        -moz-transition:all 600ms ease;
+                                                        -webkit-transition:all 600ms ease;
+
+                                                    `
+
+                                                }, 5)
+
+                                }
+
+
+                        }
+
+
+                    // HIDE ADMIN POST BUTTON -----------------------
+                    // ----------------------------------------------
+
+                        function hidePostAdminReplySubmitButton () {
+
+
+                            // CHECK IF BUTTON ALREADY IS VISIBLE AND REMOVE 
+                            // --------------------------------------
+
+                                if ( getAdminReplySubmitButtonMain.style.display = "block" ) {
+
+                                    // FADE OUT BUTTON --------------
+                                    // ------------------------------
+
+                                        getAdminReplySubmitButtonMain.style = `
+                                        
+                                            width:100%;
+                                            margin:0px 0px 0px 0px;
+                                            display:block;
+                                            opacity:0;
+                                            transition:all 600ms ease;
+                                            -o-transition:all 600ms ease;
+                                            -ms-transition:all 600ms ease;
+                                            -moz-transition:all 600ms ease;
+                                            -webkit-transition:all 600ms ease;
+
+                                        `
+
+                                            // KILL BUTTON ----------
+                                            // ----------------------
+
+                                                setTimeout(() => {
+
+                                                    getAdminReplySubmitButtonMain.style = `
+                                                    
+                                                        width:100%;
+                                                        margin:0px 0px 0px 0px;
+                                                        display:none;
+                                                        opacity:0;
+                                                        transition:all 600ms ease;
+                                                        -o-transition:all 600ms ease;
+                                                        -ms-transition:all 600ms ease;
+                                                        -moz-transition:all 600ms ease;
+                                                        -webkit-transition:all 600ms ease;
+
+                                                    `
+
+                                                }, 300)
+
+                                }
+
+
+                        }
 
 
 
@@ -2481,10 +3319,23 @@
 
                 getManagePostCardUserDescription.textContent = ``
 
-                getManagePostCardAdminTime.textContent = ``
-                getManagePostCardAdminDate.textContent = ``
+                    // IF COMMENTS SECTION IS ALREADY EMPTY ---------
+                    // //////////////////////////////////////////////
 
-                getManagePostCardAdminComment.textContent = ``
+                        if ( getResponseBlockResizer.children[0] == null || getResponseBlockResizer.children[0] == undefined ) {
+
+                        }
+
+                    // IF COMMENTS SECTION IS NOT EMPTY THEN EMPTY OUT
+                    // //////////////////////////////////////////////
+
+                        else {
+
+                            console.log("EMPTYING OUT...")
+
+                            getResponseBlockResizer.removeChild(getResponseBlockResizer.children[0])
+
+                        }
 
         }
 
@@ -2605,10 +3456,20 @@
                                                 // UPDATE FIELDS WITH CONTENT
                                                 // //////////////////
 
+                                                    // EMPTY OUT CURRENTLY SELECTED USER ID
+                                                    // //////////////
+
+                                                        currentSelectedId = []
+
+                                                    // LOAD CURRENTLY SELECTED USER ID
+                                                    // //////////////
+
+                                                        currentSelectedId.push(arrayAlignerForItemsPush[0][buttonFindCounter])
+
                                                     // UPDATE USER ID
                                                     // //////////////
 
-                                                        getManagePostCardUserText.textContent = `BY: ${arrayAlignerForItemsPush[0][buttonFindCounter]}`
+                                                        getManagePostCardUserText.textContent = `BY: ${arrayAlignerForItemsPush[14][buttonFindCounter]}`
 
                                                     // RUN LOOP FOR EACH STAR BASED ON COLLECTED STAR COUNTER
                                                     // //////////////
@@ -2675,24 +3536,80 @@
                                                     // UPDATE USER TIME AND DATE MAPPER
                                                     // //////////////
 
-                                                        getManagePostCardPostedTime.textContent = `13H00`
-                                                        getManagePostCardPostedDate.textContent = `12 JUL 2025`
+                                                        getManagePostCardPostedTime.textContent = `${arrayAlignerForItemsPush[6][buttonFindCounter]}`
+                                                        getManagePostCardPostedDate.textContent = `${arrayAlignerForItemsPush[7][buttonFindCounter]}`
 
                                                     // UPDATE USER DESCRIPTION
                                                     // //////////////
 
                                                         getManagePostCardUserDescription.textContent = `${arrayAlignerForItemsPush[5][buttonFindCounter]}`
 
-                                                    // UPDATE ADMIN TIME AND DATE MAPPER
-                                                    // //////////////
 
-                                                        getManagePostCardAdminTime.textContent = `13H00`
-                                                        getManagePostCardAdminDate.textContent = `12 JUL 2025`
 
-                                                    // UPDATE ADMIN COMMENT
-                                                    // //////////////
 
-                                                        getManagePostCardAdminComment.textContent = `our post has been extended here and this is something that we can do when we put our heads together for the rest of the human species to survive for the days ahead and so forth 6.`
+
+
+
+
+                                                            // CREATE NEOM ADMIN REPLY BLOCK AND COMMENT CHECK
+                                                            // //////
+
+                                                                // CHECK IF ADMIN COMMENT DOES NOT EXIST
+                                                                // //
+
+                                                                    if ( arrayAlignerForItemsPush[11][buttonFindCounter] == "" ) {
+
+                                                                        console.log("NO ADMIN COMMENT YET...")
+
+                                                                        // HIDE ADMIN COMMENT BOX -----------------
+                                                                        // ////////////////////////////////////////
+
+                                                                            hideAdminCommentDisplayBlockFunction()
+
+                                                                    }
+
+                                                                // CHECK IF ADMIN COMMENT DOES EXIST
+                                                                // //
+
+                                                                    else {
+
+                                                                        console.log("COMMENT EXISTS...")
+
+                                                                        // SHOW ADMIN COMMENT BOX -----------------
+                                                                        // ////////////////////////////////////////
+
+                                                                            showAdminCommentDisplayBlockFunction()
+
+                                                                        // ADD ADMIN COMMENT TO BLOCK -------------
+                                                                        // ////////////////////////////////////////
+
+                                                                            // RUN LOOP FOR AMOUNT OF COMMENTS AND POPULATE
+                                                                            // ///////////////////////////////////
+
+                                                                                for ( commentBlockCounter = 0; commentBlockCounter < arrayAlignerForItemsPush[11].length; commentBlockCounter++ ) {
+
+                                                                                    // IF COMMENT DOES NOT EXIST THEN SKIP
+                                                                                    // ///////////////////////////
+
+                                                                                        if ( arrayAlignerForItemsPush[11][commentBlockCounter] == "" ) {
+
+                                                                                        }
+
+                                                                                    // IF COMMENT EXISTS THEN CREATE COMMENT BLOCK
+                                                                                    // ///////////////////////////
+
+                                                                                        else {
+
+                                                                                            console.log("this number: " + commentBlockCounter)
+
+                                                                                            createCommentBlock(buttonFindCounter)
+
+                                                                                        }
+
+                                                                                }
+
+
+                                                                    }
 
                                                         
                                                     
@@ -2814,12 +3731,37 @@
         // SETUP ADMIN POST REPLY EVENTS ----------------------------
         // //////////////////////////////////////////////////////////
 
+            // SETUP ADMIN POST REPLY CHECK EXISTING COMMENT --------
+            // //////////////////////////////////////////////////////
+
             // SETUP ADMIN POST REPLY SHOW HIDE BUTTON --------------
             // //////////////////////////////////////////////////////
 
                 getAdminReplyInputField.addEventListener("keyup", function () {
 
-                    postAdminReplyFunction()
+                    adminReplyButtonBehaviourFunction()
+
+                })
+
+            // SETUP ADMIN POST REPLY BUTTONS -----------------------
+            // //////////////////////////////////////////////////////
+
+                getResponseButton.addEventListener("click", function () {
+
+                    console.log("buttonOne...")
+
+                        // FORCE CLICK AND SUBMIT -------------------
+                        // //////////////////////////////////////////
+
+                            createNewAdminReplyFunction()
+
+                            var getResponseButtonActual = document.querySelector(`.managePostContentAdminCommentSubmitButtonActual`)
+
+                            setTimeout(() => {
+
+                                getResponseButtonActual.click()
+
+                            }, 50)
 
                 })
 

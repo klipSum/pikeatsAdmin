@@ -238,44 +238,86 @@
                                 <%postList.forEach(post => {%>
 
 
-                                    <div class="postCollectorContainer">
+                                        <div class="postUserCollectorContainer">
 
-                                        <!-- COLLECT ID ----------- -->
-                                        <!-- ---------------------- -->
 
-                                            <div class="postIdCollector"><%=post._id%></div>
 
-                                        <!-- COLLECT IMAGE -------- -->
-                                        <!-- ---------------------- -->
+                                            <!-- USER COLLECTS ---- -->
+                                            <!-- ------------------ -->
 
-                                            <div class="postImageCollector"><%=post.image%></div>
 
-                                        <!-- COLLECT AREA --------- -->
-                                        <!-- ---------------------- -->
+                                                <!-- COLLECT ID --- -->
+                                                <!-- -------------- -->
 
-                                            <div class="postAreaCollector"><%=post.area%></div>
+                                                    <div class="postIdCollector"><%=post._id%></div>
 
-                                        <!-- COLLECT RATING ------- -->
-                                        <!-- ---------------------- -->
+                                                <!-- COLLECT IMAGE ---- -->
+                                                <!-- -------------- -->
 
-                                            <div class="postRatingCollector"><%=post.rating%></div>
+                                                    <div class="postImageCollector"><%=post.userImage%></div>
 
-                                        <!-- COLLECT CALORIE ------ -->
-                                        <!-- ---------------------- -->
+                                                <!-- COLLECT AREA ----- -->
+                                                <!-- -------------- -->
 
-                                            <div class="postCalorieCollector"><%=post.calorie%></div>
+                                                    <div class="postAreaCollector"><%=post.userArea%></div>
 
-                                        <!-- COLLECT COMMENTS ----- -->
-                                        <!-- ---------------------- -->
+                                                <!-- COLLECT RATING --- -->
+                                                <!-- -------------- -->
 
-                                            <div class="postCommentsCollector"><%=post.comments%></div>
+                                                    <div class="postRatingCollector"><%=post.userRating%></div>
 
-                                        <!-- COLLECT ADMIN COMMENTS -->
-                                        <!-- ---------------------- -->
+                                                <!-- COLLECT CALORIE -- -->
+                                                <!-- -------------- -->
 
-                                            <div class="postAdminCommentsCollector"><%=post.adminComments%></div>
+                                                    <div class="postCalorieCollector"><%=post.userCalorie%></div>
 
-                                    </div>
+                                                <!-- COLLECT DESCRIPTION -->
+                                                <!-- -------------- -->
+
+                                                    <div class="postCommentsCollector"><%=post.userDescription%></div>
+
+                                                <!-- COLLECT USER TIME DATE -->
+                                                <!-- -------------- -->
+
+                                                    <div class="postUserPostedTimeCollector"><%=post.userTime%></div>
+                                                    <div class="postUserPostedDateCollector"><%=post.userDate%></div>
+
+                                                <!-- COLLECT USER REPLIES -->
+                                                <!-- -------------- -->
+
+                                                    <div class="postUserPostedReplyCollector"><%=post.userReply%></div>
+
+                                                <!-- COLLECT USER REPLIES TIME AND DATE -->
+                                                <!-- -------------- -->
+
+                                                    <div class="postUserPostedTimeCollector"><%=post.userReplyTime%></div>
+                                                    <div class="postUserPostedDateCollector"><%=post.userReplyDate%></div>
+                                            
+
+
+                                            <!-- ADMIN COLLECTS --- -->
+                                            <!-- ------------------ -->
+
+
+                                                <!-- COLLECT ADMIN FIRST COMMENT -->
+                                                <!-- -------------- -->
+
+                                                    <div class="postAdminFirstCommentCollector"><%=post.adminComments%></div>
+
+                                                <!-- COLLECT ADMIN FIRST TIME DATE -->
+                                                <!-- -------------- -->
+
+                                                    <div class="postAdminFirstPostedTimeCollector"><%=post.adminCommentTime%></div>
+                                                    <div class="postAdminFirsrPostedDateCollector"><%=post.adminCommentDate%></div>
+                                            
+
+
+                                            <!-- ID COLLECTS ------ -->
+                                            <!-- ------------------ -->
+
+                                                    <div class="postUserIdCollector"><%=post.userId%></div>
+
+                                        </div>
 
                                 
                                 <%})%>
@@ -445,47 +487,6 @@
                                         <div class="managePostContentAdminResponsePostedResizer">
 
 
-
-
-                                            <!-- RESPONSE TAG ACTUAL -->
-                                            <!-- /////////////////// -->
-
-                                                <div class="managePostContentAdminResponsePostedActualResponseContainer">
-
-                                                    <div class="managePostContentAdminResponsePostedAdminNameContainer">
-
-                                                        <div class="postAdminNameHeaderResponseTag">response by:</div> 
-                                                        <div class="postAdminNameHeaderContainer">NEOM</div>
-
-                                                    </div>
-
-                                                    <div class="managePostContentAdminResponsePostedTimeStampContainer">
-
-                                                        <div class="postTimeHeaderResponseTag">13h00</div>
-
-                                                        <div class="postTimeDateSpacerResponseTag">|</div>
-
-                                                        <div class="postDateHeaderResponseTag">12 Jul 2025</div>
-
-                                                    </div>
-
-                                                    <div class="managePostContentAdminResponsePostedAdminCommentContainer">
-
-                                                        our post has been extended here and this is something that we can do when
-                                                        we put our heads together for the rest of the human species to survive for 
-                                                        the days ahead and so forth.
-
-                                                    </div>
-
-                                                </div>
-
-                                            <!-- RESPONSE TAG ACTUAL -->
-                                            <!-- /////////////////// -->
-
-
-
-
-
                                         </div>
 
                                     </div>
@@ -540,11 +541,11 @@
 
                                                 <div class="managePostContentAdminCommentSubmitButtonContainer">
 
-                                                    <button class="managePostContentAdminCommentSubmitButtonActual">
+                                                    <div class="managePostContentAdminCommentSubmitButtonBlock">
 
                                                         post reply
 
-                                                    </button>
+                                                    </div>
 
                                                 </div>
 
