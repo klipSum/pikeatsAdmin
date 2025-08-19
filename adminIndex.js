@@ -146,8 +146,7 @@ const giveSeason = process.env.giveOpenSeason
 
                             res.render("index", {
 
-                                postList: posts,
-                                adminPostList: posts
+                                postList: posts
 
                             });
 
